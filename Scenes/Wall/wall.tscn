@@ -14,7 +14,7 @@ transform = Transform3D(8.07145, 0, 0, 0, 4.41694, 0, 0, 0, 2.22813, 0, 1.88872,
 shape = SubResource("BoxShape3D_hwyfo")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104008, -0.055423, -0.010298)
+transform = Transform3D(1, 0, 0, 0, 1.99065, 0, 0, 0, 1, -0.0104008, -0.055423, -0.010298)
 mesh = ExtResource("2_68p8m")
 surface_material_override/0 = ExtResource("3_fkwi4")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsv8vtjl8vk57"]
+[gd_scene load_steps=9 format=3 uid="uid://dsv8vtjl8vk57"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="PackedScene" uid="uid://bqlj6jakl7f83" path="res://Scenes/Wall/wall.tscn" id="4_j5en5"]
@@ -14,6 +14,11 @@ background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
 
+[sub_resource type="BoxMesh" id="BoxMesh_s72rp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kx06f"]
+albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
+
 [node name="Node3d" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6153, 0, 34.1127)
 
@@ -25,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.43201)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.115437, -0.225983, 0.967267, 0.229876, -0.941265, -0.247342, 13.3745, 97.462, -126.962)
-light_energy = 0.121
+light_energy = 0.0
 light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
@@ -45,6 +50,9 @@ transform = Transform3D(0.00368259, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.003682
 [node name="Wall12" parent="." instance=ExtResource("4_j5en5")]
 transform = Transform3D(0.00368259, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.00368259, -12.3737, 0.165, 15.9353)
 
+[node name="Wall18" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(-1, 0, 0.000994747, 0, 1, 0, -0.000994747, 0, -1, -7.18882, 0.165, 21.5534)
+
 [node name="Wall8" parent="." instance=ExtResource("4_j5en5")]
 transform = Transform3D(0.00722561, 0, 0.999974, 0, 1, 0, -0.999974, 0, 0.00722561, -3.39046, 0.165, -9.33958)
 
@@ -59,6 +67,9 @@ transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.01581
 
 [node name="Wall15" parent="." instance=ExtResource("4_j5en5")]
 transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.0158121, 16.373, 0.162663, -28.6094)
+
+[node name="Wall17" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(0.999997, 0, -0.00225158, 0, 1, 0, 0.00225158, 0, 0.999997, 10.8202, 0.162663, -33.4255)
 
 [node name="Wall4" parent="." instance=ExtResource("4_j5en5")]
 transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.0158121, 16.2448, 0.162663, -11.8471)
@@ -104,3 +115,8 @@ transform = Transform3D(8.5, 0, 0, 0, 8.5, 0, 0, 0, 8.5, 10.9246, -0.354056, -28
 
 [node name="Floor6" parent="." instance=ExtResource("5_3nvia")]
 transform = Transform3D(8.5, 0, 0, 0, 8.5, 0, 0, 0, 8.5, 2.22583, -0.354056, -11.9643)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(49.9756, 0, 0, 0, 0.360745, 0, 0, 0, 71.8624, 8.11932, 8.51726, -1.65804)
+mesh = SubResource("BoxMesh_s72rp")
+surface_material_override/0 = SubResource("StandardMaterial3D_kx06f")
