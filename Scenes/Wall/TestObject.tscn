@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxflhmthk5j47"]
+
+[ext_resource type="Script" path="res://Scenes/Wall/TestObject.gd" id="1_v0chu"]
+[ext_resource type="ArrayMesh" uid="uid://b6fovxeaf7y0j" path="res://Scenes/Wall/LargeBuilding01.obj" id="2_yn1i1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_how13"]
+size = Vector3(8.5195, 4.5369, 2.45601)
+
+[node name="Wall" type="CharacterBody3D"]
+script = ExtResource("1_v0chu")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.30161, 0)
+shape = SubResource("BoxShape3D_how13")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_yn1i1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00427639, 1.77173, 0.136339)
+light_color = Color(1, 0.662745, 0.133333, 1)

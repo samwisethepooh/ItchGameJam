@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctahsvj88g1om"]
+[gd_scene load_steps=9 format=3 uid="uid://dsv8vtjl8vk57"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
 [ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_m1rsk"]
+[ext_resource type="PackedScene" uid="uid://bqlj6jakl7f83" path="res://Scenes/Wall/wall.tscn" id="4_j5en5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -29,24 +30,13 @@ environment = SubResource("Environment_l5pxq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
-light_energy = 1.232
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.115437, -0.225983, 0.967267, 0.229876, -0.941265, -0.247342, 13.3745, 97.462, -126.962)
+light_energy = 0.121
 light_indirect_energy = 0.884
 light_volumetric_fog_energy = 0.768
 shadow_enabled = true
 
-[node name="CsgPolygon3d" type="CSGPolygon3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.06623, 0.523835, -28.503)
-use_collision = true
-polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
-material = SubResource("StandardMaterial3D_2gtf0")
-
 [node name="Walls" type="Node" parent="."]
-
-[node name="BasicBlock3" parent="Walls" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(2.122, 0, 0, 0, 5.306, 0, 0, 0, 31.4786, 46.3745, 1.97458, 21.616)
-block_color_group = 3
-block_style = 2
 
 [node name="BasicBlock6" parent="Walls" instance=ExtResource("1_ujgwk")]
 transform = Transform3D(-8.74228e-08, 0, 21.7546, 0, 5, 0, -2, 0, -9.50922e-07, 36.5609, 1.70454, 36.5051)
@@ -59,12 +49,17 @@ block_color_group = 3
 block_style = 2
 
 [node name="BasicBlock8" parent="Walls" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(-8.74228e-08, 0, 30, 0, 5, 0, -2, 0, -1.31134e-06, 40.7061, 2.51183, 69.2939)
+transform = Transform3D(-8.74228e-08, 0, 30, 0, 5, 0, -2, 0, -1.31134e-06, 40.6163, 2.51183, 69.291)
 block_color_group = 3
 block_style = 2
 
-[node name="BasicBlock9" parent="Walls" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(-8.74228e-08, 0, 11.0774, 0, 5, 0, -2, 0, -4.8421e-07, 31.1132, 2.51183, 19.5697)
+[node name="BasicBlock15" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 30, 0, 5, 0, -2, 0, -1.31134e-06, 0.663234, 2.51183, 69.6541)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock14" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 70.6959, 0, 5, 0, -2, 0, -3.09022e-06, 19.9078, 2.51183, 78.9842)
 block_color_group = 3
 block_style = 2
 
@@ -74,17 +69,12 @@ block_color_group = 3
 block_style = 2
 
 [node name="BasicBlock11" parent="Walls" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 49.5651, 14.7256, 2.51183, 48.1404)
+transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 45.2141, 14.7256, 2.51183, 48.1404)
 block_color_group = 3
 block_style = 2
 
 [node name="BasicBlock12" parent="Walls" instance=ExtResource("1_ujgwk")]
 transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 32.5565, 26.5712, 2.51183, 52.2052)
-block_color_group = 3
-block_style = 2
-
-[node name="BasicBlock13" parent="Walls" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(2.00977, -0.108229, 0, 0.0432918, 5.02442, 0, 0, 0, 15.7675, 35.8585, 2.51183, 10.8135)
 block_color_group = 3
 block_style = 2
 
@@ -140,6 +130,60 @@ block_color_group = 1
 block_style = 2
 
 [node name="BasicBlock16" parent="Floor" instance=ExtResource("1_ujgwk")]
-transform = Transform3D(2.32341, 0, 0, 0, 0.619973, 0, 0, 0, 1.82175, 18.8785, -0.330558, 58.8934)
+transform = Transform3D(2.32341, 0, 0, 0, 0.619973, 0, 0, 0, 1.82175, 18.88, -0.330558, 58.8943)
 block_color_group = 1
 block_style = 2
+
+[node name="BasicBlock18" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(0.947346, 0, 0, 0, 0.428444, 0, 0, 0, 0.864619, 36.561, 1.89583, 75.8782)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock19" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(0.947346, 0, 0, 0, 0.428444, 0, 0, 0, 0.864619, 38.4212, 1.89583, 73.6374)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock20" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(0.947346, 0, 0, 0, 0.428444, 0, 0, 0, 0.864619, 41.031, 1.89583, 75.473)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock21" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(0.947346, 0, 0, 0, 0.428444, 0, 0, 0, 0.864619, 43.3231, 1.89583, 73.2838)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock22" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(0.947346, 0, 0, 0, 0.428444, 0, 0, 0, 0.864619, 46.6136, 1.89583, 72.5055)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock23" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.66876, 0, 0, 0, 0.428444, 0, 0, 0, 2.94952, 50.4999, 1.89583, 74.0032)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock17" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(68.4949, 0, 0, 0, 9.81134, 0, 0, 0, 7.63796, 20.9868, -4.80375, 74.3517)
+
+[node name="CsgPolygon3d" type="CSGPolygon3D" parent="Floor"]
+transform = Transform3D(-2.99769, 0, -0.117675, 0, 1.89218, 0, 0.117675, 0, -2.99769, 32.4902, 0.051205, 73.0012)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
+material = SubResource("StandardMaterial3D_2gtf0")
+
+[node name="Wall" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.52927, 0.165, -14.689)
+
+[node name="Wall2" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.59031, 0.162663, -20.2875)
+
+[node name="Wall3" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.0158121, 16.373, 0.162663, -20.2875)
+
+[node name="Wall4" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.0158121, 16.2448, 0.162663, -11.8471)
+
+[node name="Wall5" parent="." instance=ExtResource("4_j5en5")]
+transform = Transform3D(-0.0158121, 0, -0.999875, 0, 1, 0, 0.999875, 0, -0.0158121, 16.0929, 0.162663, -3.49401)
