@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://crsoy1eagqru5"]
+
+[ext_resource type="PackedScene" uid="uid://bsklvnlflw4tt" path="res://Models/Level/Painting.blend" id="1_6em0r"]
+[ext_resource type="Script" path="res://Source/Painting.cs" id="2_mfh0t"]
+
+[node name="Painting" instance=ExtResource("1_6em0r")]
+script = ExtResource("2_mfh0t")
