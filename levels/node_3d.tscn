@@ -1,0 +1,145 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctahsvj88g1om"]
+
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
+[ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://addons/devblocks/blocks/basic_block.tscn" id="1_ujgwk"]
+[ext_resource type="Texture2D" uid="uid://cgp4mvev1cbra" path="res://addons/devblocks/textures/purple/texture_01.png" id="3_m1rsk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
+
+[sub_resource type="Environment" id="Environment_l5pxq"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gtf0"]
+albedo_texture = ExtResource("3_m1rsk")
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar = true
+
+[node name="Node3d" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.6153, 0, 34.1127)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l5pxq")
+
+[node name="Player" parent="." instance=ExtResource("1_eisjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.182362, -0.512743, 0.838951, 0.181419, -0.821061, -0.541244, -0.00693703, 59.5145, -109.348)
+light_energy = 1.232
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="CsgPolygon3d" type="CSGPolygon3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.06623, 0.523835, -28.503)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 1, 0, 1, 1, 0)
+material = SubResource("StandardMaterial3D_2gtf0")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="BasicBlock3" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.122, 0, 0, 0, 5.306, 0, 0, 0, 31.4786, 46.3745, 1.97458, 21.616)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock6" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 21.7546, 0, 5, 0, -2, 0, -9.50922e-07, 36.5609, 1.70454, 36.5051)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock7" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 9.58095, 24.9096, 2.51183, 23.2786)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock8" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 30, 0, 5, 0, -2, 0, -1.31134e-06, 40.7061, 2.51183, 69.2939)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock9" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 11.0774, 0, 5, 0, -2, 0, -4.8421e-07, 31.1132, 2.51183, 19.5697)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock10" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-8.74228e-08, 0, 11.0774, 0, 5, 0, -2, 0, -4.8421e-07, 19.7419, 2.51183, 27.0485)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock11" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 49.5651, 14.7256, 2.51183, 48.1404)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock12" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2, 0, 0, 0, 5, 0, 0, 0, 32.5565, 26.5712, 2.51183, 52.2052)
+block_color_group = 3
+block_style = 2
+
+[node name="BasicBlock13" parent="Walls" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.00977, -0.108229, 0, 0.0432918, 5.02442, 0, 0, 0, 15.7675, 35.8585, 2.51183, 10.8135)
+block_color_group = 3
+block_style = 2
+
+[node name="Floor" type="Node" parent="."]
+
+[node name="BasicBlock" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 40.5703, 0, 24.2982)
+
+[node name="BasicBlock2" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 40.5387, 0, 31.613)
+
+[node name="BasicBlock3" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 30.6765, 0, 31.7486)
+
+[node name="BasicBlock4" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 30.6362, 0, 24.3049)
+
+[node name="BasicBlock5" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 20.6949, 0, 31.8131)
+
+[node name="BasicBlock6" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 9.67266, 0, 0, 0, 7.53, 20.5906, -4.76211, 39.4046)
+
+[node name="BasicBlock7" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 9.67266, 0, 0, 0, 7.53, 20.5906, -4.80375, 68.4018)
+
+[node name="BasicBlock13" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 9.67266, 0, 0, 0, 7.53, 20.5906, -4.80375, 68.4018)
+
+[node name="BasicBlock8" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 32.3833, 20.6949, -9.16088, 53.7811)
+
+[node name="BasicBlock9" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-4.37114e-07, -0.33, 0, 10, -1.44248e-08, 0, 0, 0, 26.7166, 15.8147, -4.98119, 53.4443)
+
+[node name="BasicBlock10" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(-4.37114e-07, -0.33, 0, 10, -1.44248e-08, 0, 0, 0, 26.8426, 25.6378, -4.98119, 55.6529)
+
+[node name="BasicBlock11" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 40.5703, 0, 16.9749)
+
+[node name="BasicBlock12" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(10, 0, 0, 0, 0.33, 0, 0, 0, 7.53, 40.5703, 0, 9.36204)
+
+[node name="BasicBlock14" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.32341, 0, 0, 0, 0.619973, 0, 0, 0, 1.82175, 22.5125, -0.330558, 46.2339)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock15" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.32341, 0, 0, 0, 0.619973, 0, 0, 0, 1.82175, 18.8785, -0.330558, 52.6169)
+block_color_group = 1
+block_style = 2
+
+[node name="BasicBlock16" parent="Floor" instance=ExtResource("1_ujgwk")]
+transform = Transform3D(2.32341, 0, 0, 0, 0.619973, 0, 0, 0, 1.82175, 18.8785, -0.330558, 58.8934)
+block_color_group = 1
+block_style = 2
