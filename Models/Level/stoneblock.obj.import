@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d040snotlcwh"
+path="res://.godot/imported/stoneblock.obj-eb3321b1433f1d9a2d089754a24fbfed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stoneblock.obj-eb3321b1433f1d9a2d089754a24fbfed.mesh"]
+
+source_file="res://Models/Level/stoneblock.obj"
+dest_files=["res://.godot/imported/stoneblock.obj-eb3321b1433f1d9a2d089754a24fbfed.mesh", "res://.godot/imported/stoneblock.obj-eb3321b1433f1d9a2d089754a24fbfed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

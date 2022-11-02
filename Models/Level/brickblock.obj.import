@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bbu7dpy528qux"
+path="res://.godot/imported/brickblock.obj-1d747bb8d0d862d0226cfe13322b0b00.mesh"
+
+[deps]
+
+files=["res://.godot/imported/brickblock.obj-1d747bb8d0d862d0226cfe13322b0b00.mesh"]
+
+source_file="res://Models/Level/brickblock.obj"
+dest_files=["res://.godot/imported/brickblock.obj-1d747bb8d0d862d0226cfe13322b0b00.mesh", "res://.godot/imported/brickblock.obj-1d747bb8d0d862d0226cfe13322b0b00.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

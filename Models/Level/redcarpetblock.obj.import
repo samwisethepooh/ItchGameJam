@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhavpiff6awv"
+path="res://.godot/imported/redcarpetblock.obj-6d5f944ce2ea5b13bed9b2e237892e9e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/redcarpetblock.obj-6d5f944ce2ea5b13bed9b2e237892e9e.mesh"]
+
+source_file="res://Models/Level/redcarpetblock.obj"
+dest_files=["res://.godot/imported/redcarpetblock.obj-6d5f944ce2ea5b13bed9b2e237892e9e.mesh", "res://.godot/imported/redcarpetblock.obj-6d5f944ce2ea5b13bed9b2e237892e9e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
