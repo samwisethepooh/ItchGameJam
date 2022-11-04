@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dod8yy3kyk7nb"]
+
+[ext_resource type="Script" path="res://Source/LevelGeneration/GridMapBootstrapper.cs" id="1_8kfoh"]
+[ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="2_vcycq"]
+
+[node name="LevelScene" type="Node3D"]
+script = ExtResource("1_8kfoh")
+
+[node name="GridMap" parent="." instance=ExtResource("2_vcycq")]
