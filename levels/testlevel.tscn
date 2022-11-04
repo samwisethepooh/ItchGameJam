@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://boyo7thqee33a"]
+[gd_scene load_steps=8 format=3 uid="uid://boyo7thqee33a"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="Script" path="res://Source/LevelGeneration/JustGroundGenerator.cs" id="2_et6pa"]
 [ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="5_7d8gr"]
-[ext_resource type="Texture2D" uid="uid://cbxicq4e7yrac" path="res://Images/minotaur_caveart.png" id="5_eetar"]
-[ext_resource type="PackedScene" uid="uid://crsoy1eagqru5" path="res://Scenes/Level/painting.tscn" id="5_q3u66"]
 [ext_resource type="Script" path="res://Source/LevelGeneration/GridMapBootstrapper.cs" id="6_ter02"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
@@ -36,10 +34,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, 10)
 light_energy = 4.778
 omni_range = 4096.0
-
-[node name="Painting" parent="." instance=ExtResource("5_q3u66")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.50377, 2.5922, 10)
-Texture = ExtResource("5_eetar")
 
 [node name="Level" type="Node3D" parent="."]
 

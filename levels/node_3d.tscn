@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsv8vtjl8vk57"]
+[gd_scene load_steps=10 format=3 uid="uid://dsv8vtjl8vk57"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="PackedScene" uid="uid://bqlj6jakl7f83" path="res://Scenes/Wall/wall.tscn" id="4_j5en5"]
 [ext_resource type="MeshLibrary" uid="uid://c8k4spndy8hwb" path="res://Scenes/Level/LevelElements.tres" id="4_sw54n"]
 [ext_resource type="PackedScene" uid="uid://dj26sacnhty4r" path="res://Scenes/Floor/Floor.tscn" id="5_3nvia"]
-[ext_resource type="PackedScene" uid="uid://crsoy1eagqru5" path="res://Scenes/Level/painting.tscn" id="5_q3u66"]
-[ext_resource type="Texture2D" uid="uid://bnay2dbedsgic" path="res://Images/elephant.jpeg" id="6_ndbmg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
 
@@ -136,7 +134,3 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3301, 7.3141, -69.3259)
 omni_range = 35.636
-
-[node name="Painting" parent="." instance=ExtResource("5_q3u66")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20.9233, 5.95737, -69.2385)
-Texture = ExtResource("6_ndbmg")
