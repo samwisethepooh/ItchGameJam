@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp5lu2b0l5nlq"]
+
+[ext_resource type="Script" path="res://Source/Mobs/Minotaur.cs" id="1_15vo4"]
+[ext_resource type="AnimationLibrary" uid="uid://bessp12qoayxa" path="res://Animations/Movement.res" id="2_22kxy"]
+[ext_resource type="PackedScene" uid="uid://cap474nwjfjep" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
+[ext_resource type="Script" path="res://Source/Behaviour/CharacterPerceptionBehaviour.cs" id="4_4nlm1"]
+[ext_resource type="Script" path="res://Source/Mobs/MobController.cs" id="4_jmmc3"]
+[ext_resource type="Script" path="res://Source/Behaviour/DisengagementBehaviour.cs" id="6_nxk1l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7i3pq"]
+radius = 1.123
+height = 5.362
+
+[node name="Minotaur" type="CharacterBody3D"]
+script = ExtResource("1_15vo4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"Movement": ExtResource("2_22kxy")
+}
+
+[node name="RootNode" type="Node3D" parent="."]
+
+[node name="Enemy" type="Node3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+
+[node name="Armature" parent="Enemy" instance=ExtResource("3_cchuk")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24161, 0)
+shape = SubResource("CapsuleShape3D_7i3pq")
+
+[node name="MobController" type="Node" parent="."]
+script = ExtResource("4_jmmc3")
+
+[node name="CharacterPerceptionBehaviour" type="Node" parent="MobController"]
+script = ExtResource("4_4nlm1")
+
+[node name="DisengagementBehaviour" type="Node" parent="MobController"]
+script = ExtResource("6_nxk1l")

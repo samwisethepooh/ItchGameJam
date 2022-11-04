@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+[Tool]
 public partial class GridMapBootstrapper : Node
 {
     private GridMap _gridMap;
@@ -26,9 +27,6 @@ public partial class GridMapBootstrapper : Node
 
     public override void _Ready()
     {
-        GD.Print("Ready");
-        GD.Print(_generator);
-        GD.Print(_gridMap);
         if (_generator != null
             && _gridMap != null)
         {

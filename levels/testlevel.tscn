@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://boyo7thqee33a"]
+[gd_scene load_steps=9 format=3 uid="uid://boyo7thqee33a"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="Script" path="res://Source/LevelGeneration/JustGroundGenerator.cs" id="2_et6pa"]
 [ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="5_7d8gr"]
+[ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
 [ext_resource type="Script" path="res://Source/LevelGeneration/GridMapBootstrapper.cs" id="6_ter02"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
@@ -15,13 +16,13 @@ background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
 sky = SubResource("Sky_ivwug")
 
-[node name="Node3d" type="Node3D"]
+[node name="Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l5pxq")
 
 [node name="Player" parent="." instance=ExtResource("1_eisjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.32905, 2.44245, 9.16548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0814, 4.40021, 18.7926)
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.115437, -0.225983, 0.967267, 0.229876, -0.941265, -0.247342, 13.3745, 97.462, -126.962)
@@ -31,7 +32,7 @@ light_volumetric_fog_energy = 0.768
 shadow_enabled = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 5, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4586, 11.7455, 14.4531)
 light_energy = 4.778
 omni_range = 4096.0
 
@@ -39,10 +40,11 @@ omni_range = 4096.0
 
 [node name="Generator" type="Node" parent="Level"]
 script = ExtResource("2_et6pa")
+WorldBounds = Vector3i(100, 3, 100)
 
 [node name="GridMap" parent="Level" instance=ExtResource("5_7d8gr")]
 data = {
-"cells": PackedInt32Array(-65534, 5, 6, -65534, 4, 6, -65534, 3, 6, -65533, 3, 6, -65532, 3, 6, -65532, 4, 6, -65533, 4, 6, -65533, 5, 6, -65532, 5, 6, -65531, 3, 6, -65531, 2, 6, -65530, 2, 6, -65531, 4, 6, -65530, 3, 6, 6, 2, 4, 6, 3, 4, 65542, 2, 4, 131078, 1, 4)
+"cells": PackedInt32Array(-65534, 5, 6, -65534, 4, 6, -65534, 3, 6, -65533, 3, 6, -65532, 3, 6, -65532, 4, 6, -65533, 4, 6, -65533, 5, 6, -65532, 5, 6, -65531, 3, 6, -65531, 2, 6, -65530, 2, 6, -65531, 4, 6, -65530, 3, 6, -65531, 5, 6, -65530, 5, 6, -65529, 5, 6, -65528, 5, 6, -65527, 5, 6, -65530, 4, 6, -65529, 2, 6, -65528, 2, 6, -65527, 2, 6, -65526, 2, 6, -65526, 3, 6, -65527, 3, 6, -65528, 4, 6, -65529, 4, 6, -65529, 3, 6, -65528, 3, 6, -65527, 4, 6, -65530, 6, 6, -65529, 6, 6, -65528, 6, 6, -65527, 6, 6, -65528, 7, 6, -65530, 7, 6, -65531, 7, 6, -65529, 7, 6, -65526, 6, 6, 6, 10, 5, 7, 10, 5, 8, 10, 5, 8, 11, 5, 6, 9, 5, 5, 10, 5, 4, 11, 5, 7, 14, 5, 6, 14, 5, 5, 14, 5, 4, 14, 5, 65544, 10, 6, 65544, 11, 6, 131080, 10, 6)
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
@@ -50,3 +52,6 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 script = ExtResource("6_ter02")
 Generator = NodePath("../Generator")
 GridMap = NodePath("../GridMap")
+
+[node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
+transform = Transform3D(-0.917456, 0, -0.397836, 0, 1, 0, 0.397836, 0, -0.917456, 13.189, 0.269051, 5.39142)

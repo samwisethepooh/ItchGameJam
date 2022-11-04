@@ -50,6 +50,10 @@ Settings="*res://Global/Settings.gd"
 
 project/assembly_name="G4fps"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/SamHo/Source/GameDev/Jams/ItchGameJam/Output/Capture.avi"
+
 [input]
 
 moveLeft={

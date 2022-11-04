@@ -17,6 +17,5 @@ internal class GridMapGeneratorOutput : IGeneratorOutput
 	public void SetBlock(int x, int y, int z, BlockType blockType)
 	{
 		_gridMap.SetCellItem(new Vector3i(x, y, z), (int)blockType, 0);
-		GD.Print($"{x} {y} {z} {blockType}");
 	}
 }
