@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 public abstract partial class Behaviour : Node
 {
 	protected MobController MobController { get; private set; }
-    protected Node3D Mob { get; private set; }
+    protected CharacterBody3D Mob { get; private set; }
 
     public override void _Ready()
     {
         MobController = GetParent<MobController>();
-        Mob = MobController.GetParent<Node3D>();
+        Mob = MobController.GetParent<CharacterBody3D>();
     }
 }

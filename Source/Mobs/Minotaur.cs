@@ -21,34 +21,6 @@ public partial class Minotaur : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
-		if (_mobController == null)
-		{
-			return;
-		}
-		if (_mobController.Target == null)
-		{
-			_animationPlayer.Play(AnimationNames.Idle);
-			return;
-		}
-		var targetDirection = (_mobController.Target.Position - Position);
-		targetDirection.y = 0;
-		if (targetDirection.Length() < 0.0001)
-		{
-			return;
-		}
-
-        var moveDirection = targetDirection.Normalized();
-		var speed = _mobController.IsAggressive ? 3f : 1f;
-		if (_mobController.IsAggressive)
-		{
-            _animationPlayer.Play(AnimationNames.RunForward, customSpeed: 0.6f);
-        }
-        else
-		{
-            _animationPlayer.Play(AnimationNames.WalkForward, customSpeed: 0.2f);
-        }
-        Velocity = moveDirection * speed;
-		LookAt(Position + moveDirection);
 
         if (MoveAndSlide())
 		{
