@@ -17,6 +17,7 @@ public partial class JustGroundGenerator : Node, IGenerator
             for (var z = 0; z < WorldBounds.z; z++)
             {
                 generatorOutput.SetBlock(x, -1, z, BlockType.Stone);
+                generatorOutput.SetBlock(x, 3, z, BlockType.Stone);
             }
         }
 
