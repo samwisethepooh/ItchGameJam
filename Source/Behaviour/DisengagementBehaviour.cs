@@ -17,7 +17,6 @@ public partial class DisengagementBehaviour : Behaviour
         }
 
         var distanceToTarget = (MobController.Target.Position - Mob.Position).Length();
-        GD.Print(distanceToTarget);
         if (distanceToTarget >= DisengagementRange)
         {
             MobController.Target = null;

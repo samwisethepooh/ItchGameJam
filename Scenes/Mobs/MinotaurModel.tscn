@@ -400,7 +400,7 @@ cull_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.906332, 0.865913, 0.613799, 1)
+albedo_color = Color(1, 0.963201, 0.704671, 1)
 roughness = 0.200787
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q2btp"]

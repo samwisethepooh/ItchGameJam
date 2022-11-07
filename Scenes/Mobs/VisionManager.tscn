@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c27rq7gwj8g48"]
+
+[ext_resource type="Script" path="res://Source/Mobs/VisionManager.cs" id="1_vthk5"]
+
+[node name="VisionManager" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.943, 0)
+script = ExtResource("1_vthk5")

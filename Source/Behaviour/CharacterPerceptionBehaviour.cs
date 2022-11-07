@@ -7,7 +7,19 @@ using System.Threading.Tasks;
 
 public partial class CharacterPerceptionBehaviour : Behaviour
 {
+    private VisionManager _visionManager;
+
     [Export] public float ViewRange { get; set; } = 10f;
+
+    public override void _Ready()
+    {
+        base._Ready();
+        _visionManager = GetNode<VisionManager>("../../VisionManager");
+        if (_visionManager == null)
+        {
+            throw new Exception("No vision manager - this must exist on mob");
+        }
+    }
 
     public override void _Process(double delta)
     {
@@ -22,7 +34,8 @@ public partial class CharacterPerceptionBehaviour : Behaviour
             .Cast<Node3D>();
         foreach (var player in players)
         {
-            if ((player.Position - Mob.Position).Length() < ViewRange) {
+            if (_visionManager.CanDetect(player))
+            {
                 MobController.Target = new TargetNode(player);
             }
         }

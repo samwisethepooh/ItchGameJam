@@ -36,7 +36,7 @@ public partial class NavigationBehaviour : Behaviour
         }
 
         var moveDirection = targetDirection.Normalized();
-        var speed = MobController.IsAggressive ? 3f : 1f;
+        var speed = MobController.IsAggressive ? 4f : 2f;
         if (MobController.IsAggressive)
         {
             _animationPlayer.Play(AnimationNames.RunForward, customSpeed: 0.6f);

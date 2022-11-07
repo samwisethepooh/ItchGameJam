@@ -22,10 +22,10 @@ ambient_light_sky_contribution = 0.05
 environment = SubResource("Environment_l5pxq")
 
 [node name="Player" parent="." instance=ExtResource("1_eisjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0149, 1.70186, -8.62282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99403, 7.01585, -12.2892)
 
 [node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
-transform = Transform3D(-0.917456, 0, -0.397836, 0, 1, 0, 0.397836, 0, -0.917456, 112.95, 0.269051, -9.75247)
+transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8795, 0.269051, -15.7849)
 
 [node name="Sections" type="Node3D" parent="."]
 
