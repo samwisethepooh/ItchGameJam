@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcl2gn76lbdul"
-path.s3tc="res://.godot/imported/Wood_05-512x512.png-d9b32f7be364773dd4274f2983612161.s3tc.ctex"
-path.etc2="res://.godot/imported/Wood_05-512x512.png-d9b32f7be364773dd4274f2983612161.etc2.ctex"
+uid="uid://yrwx8381401d"
+path.s3tc="res://.godot/imported/Ekfs_bush_map.png-73046af8e251e0ebe05f9fd08b70a5cf.s3tc.ctex"
+path.etc2="res://.godot/imported/Ekfs_bush_map.png-73046af8e251e0ebe05f9fd08b70a5cf.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://AssetPacks/SBS - Tiny Texture Pack 2 - 512x512/512x512/Wood/Wood_05-512x512.png"
-dest_files=["res://.godot/imported/Wood_05-512x512.png-d9b32f7be364773dd4274f2983612161.s3tc.ctex", "res://.godot/imported/Wood_05-512x512.png-d9b32f7be364773dd4274f2983612161.etc2.ctex"]
+source_file="res://AssetPacks/Free Shrubs Flowers and Mushrooms 3D Low Poly Pack/texture/Ekfs_bush_map.png"
+dest_files=["res://.godot/imported/Ekfs_bush_map.png-73046af8e251e0ebe05f9fd08b70a5cf.s3tc.ctex", "res://.godot/imported/Ekfs_bush_map.png-73046af8e251e0ebe05f9fd08b70a5cf.etc2.ctex"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://0l47ftleabm7"]
+[gd_scene load_steps=9 format=3 uid="uid://0l47ftleabm7"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="PackedScene" uid="uid://bxtg8v2rfy6dv" path="res://Scenes/Sections/Floor1Entrance.tscn" id="4_r2pd1"]
+[ext_resource type="PackedScene" uid="uid://lge0pt21btfc" path="res://Scenes/shrub.tscn" id="5_uw0ov"]
 [ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
 [ext_resource type="PackedScene" uid="uid://dnehhqwbinx7d" path="res://Scenes/Sections/Floor1Approach.tscn" id="5_yacfg"]
 
@@ -22,10 +23,10 @@ ambient_light_sky_contribution = 0.05
 environment = SubResource("Environment_l5pxq")
 
 [node name="Player" parent="." instance=ExtResource("1_eisjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99403, 7.01585, -12.2892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99403, 1.53223, -12.2892)
 
 [node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
-transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8795, 0.269051, -15.7849)
+transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8795, 0.269051, -9.69181)
 
 [node name="Sections" type="Node3D" parent="."]
 
@@ -36,3 +37,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 129, 0
 
 [node name="Floor1Approach" parent="Sections" instance=ExtResource("5_yacfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 0)
+
+[node name="Shrub" parent="." instance=ExtResource("5_uw0ov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0399, 1.75862, -9.80699)
+
+[node name="Shrub2" parent="." instance=ExtResource("5_uw0ov")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.0399, 0.889397, -12.3461)
+
+[node name="Shrub3" parent="." instance=ExtResource("5_uw0ov")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 13.3092, 0.306219, -7.70548)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://lge0pt21btfc"]
+
+[ext_resource type="PackedScene" uid="uid://dhinog8ff3e2" path="res://Scenes/Level/BushModel3.tscn" id="1_w3s4n"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_78b1p"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu3i5"]
+albedo_color = Color(0.396078, 0.952941, 0.407843, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eygo7"]
+radius = 2.2
+
+[node name="Shrub" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0399, 0.965683, -9.80699)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_78b1p")
+surface_material_override/0 = SubResource("StandardMaterial3D_xu3i5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_eygo7")
+
+[node name="_bush_3" parent="." instance=ExtResource("1_w3s4n")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.82586, 0)

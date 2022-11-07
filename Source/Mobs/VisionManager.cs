@@ -39,8 +39,7 @@ public partial class VisionManager : Node3D
 		var result = spaceState.IntersectRay(new PhysicsRayQueryParameters3D
 		{
 			From = GlobalTransform.origin,
-			To = target.GlobalPosition,
-			CollisionMask = 1
+			To = target.GlobalPosition
 		});
 		var collider = result["collider"];
         return collider.Obj == target;
