@@ -16,6 +16,7 @@ func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -27,6 +28,9 @@ func _physics_process(delta):
 	# Handle Shooting
 	if Input.is_action_just_pressed("Shoot"):
 		shoot()
+	# Handle Shooting
+	if Input.is_action_just_pressed("Use"):
+		use()
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -57,3 +61,12 @@ func shoot():
 	bulletInst.look_at((gunRay.get_collision_point()+gunRay.get_collision_normal()),Vector3.BACK)
 	print(gunRay.get_collision_point())
 	print(gunRay.get_collision_point()+gunRay.get_collision_normal())
+
+func use():
+	if not gunRay.is_colliding():
+		return
+	var collider = gunRay.get_collider().get_parent()
+	if collider.is_in_group("useable"):
+		collider.Use(self)
+	else:
+		print('not useable')

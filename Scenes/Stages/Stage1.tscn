@@ -34,5 +34,5 @@ transform = Transform3D(-0.917456, 0, -0.397836, 0, 1, 0, 0.397836, 0, -0.917456
 [node name="Floor1Entrance2" parent="Sections" instance=ExtResource("4_r2pd1")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 129, 0, -18)
 
-[node name="Floor1Entrance3" parent="Sections" instance=ExtResource("5_yacfg")]
+[node name="Floor1Approach" parent="Sections" instance=ExtResource("5_yacfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
