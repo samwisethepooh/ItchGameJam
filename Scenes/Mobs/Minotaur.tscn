@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Source/Mobs/Minotaur.cs" id="1_15vo4"]
 [ext_resource type="AnimationLibrary" uid="uid://bessp12qoayxa" path="res://Animations/Movement.res" id="2_22kxy"]
-[ext_resource type="PackedScene" uid="uid://cap474nwjfjep" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
+[ext_resource type="PackedScene" uid="uid://1of8kddgmw18" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
 [ext_resource type="Script" path="res://Source/Behaviour/CharacterPerceptionBehaviour.cs" id="4_4nlm1"]
 [ext_resource type="Script" path="res://Source/Mobs/MobController.cs" id="4_jmmc3"]
 [ext_resource type="Script" path="res://Source/Behaviour/DisengagementBehaviour.cs" id="6_nxk1l"]

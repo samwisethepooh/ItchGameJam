@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm1bhaya14sy7"]
+
+[ext_resource type="PackedScene" uid="uid://dj1kfcp8uxny7" path="res://Models/Mobs/MinotaurPOC.blend" id="1_dy6q6"]
+[ext_resource type="Shader" path="res://Shaders/post.gdshader" id="2_cndbn"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h1d26"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8prf"]
+render_priority = 0
+shader = ExtResource("2_cndbn")
+
+[node name="PostExample" type="Node"]
+
+[node name="MinotaurPOC" parent="." instance=ExtResource("1_dy6q6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.596194, 0.019351)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_h1d26")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_u8prf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.14408)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+size = Vector2i(200, 100)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.95601)

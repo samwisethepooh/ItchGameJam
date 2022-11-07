@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhndny8ivl4ml"]
+
+[ext_resource type="PackedScene" uid="uid://hipxc3wmvyu5" path="res://Models/Level/RuinPicture1.blend" id="1_as31t"]
+[ext_resource type="Script" path="res://Source/Picture.cs" id="2_lahoe"]
+
+[node name="RuinPicture" instance=ExtResource("1_as31t")]
+script = ExtResource("2_lahoe")

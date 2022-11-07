@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://boyo7thqee33a"]
+
+[ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
+[ext_resource type="Script" path="res://Source/LevelGeneration/JustGroundGenerator.cs" id="2_et6pa"]
+[ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="5_7d8gr"]
+[ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
+[ext_resource type="Script" path="res://Source/LevelGeneration/GridMapBootstrapper.cs" id="6_ter02"]
+[ext_resource type="Texture2D" uid="uid://cbxicq4e7yrac" path="res://Images/minotaur_caveart.png" id="8_l3m55"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
+
+[sub_resource type="Environment" id="Environment_l5pxq"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+ambient_light_sky_contribution = 0.05
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l5pxq")
+
+[node name="Player" parent="." instance=ExtResource("1_eisjc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0814, 4.40021, 18.7926)
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.966349, 0.250904, -0.0567091, 0.115437, -0.225983, 0.967267, 0.229876, -0.941265, -0.247342, 13.3745, 97.462, -126.962)
+light_energy = 0.0
+light_indirect_energy = 0.884
+light_volumetric_fog_energy = 0.768
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Generator" type="Node" parent="Level"]
+script = ExtResource("2_et6pa")
+WorldBounds = Vector3i(100, 3, 100)
+
+[node name="GridMap" parent="Level" instance=ExtResource("5_7d8gr")]
+data = {
+"cells": PackedInt32Array(-65534, 5, 6, -65534, 4, 6, -65534, 3, 6, -65533, 3, 6, -65532, 3, 6, -65532, 4, 6, -65533, 4, 6, -65533, 5, 6, -65532, 5, 6, -65531, 3, 6, -65531, 2, 6, -65530, 2, 6, -65531, 4, 6, -65530, 3, 6, -65531, 5, 6, -65530, 5, 6, -65529, 5, 6, -65528, 5, 6, -65527, 5, 6, -65530, 4, 6, -65529, 2, 6, -65528, 2, 6, -65527, 2, 6, -65526, 2, 6, -65526, 3, 6, -65527, 3, 6, -65528, 4, 6, -65529, 4, 6, -65529, 3, 6, -65528, 3, 6, -65527, 4, 6, -65530, 6, 6, -65529, 6, 6, -65528, 6, 6, -65527, 6, 6, -65528, 7, 6, -65530, 7, 6, -65531, 7, 6, -65529, 7, 6, -65526, 6, 6, 6, 10, 5, 7, 10, 5, 8, 10, 5, 8, 11, 5, 6, 9, 5, 5, 10, 5, 4, 11, 5, 7, 14, 5, 6, 14, 5, 5, 14, 5, 4, 14, 5, 65544, 10, 6, 65544, 11, 6, 131080, 10, 6, 65534, 13, 2, 65534, 12, 2, 65534, 11, 2, 65534, 10, 2, 65534, 9, 2, 65534, 8, 2, 131070, 13, 2, 131070, 12, 2, 131070, 11, 2, 131070, 10, 2, 131070, 9, 2, 131070, 8, 2, 196606, 13, 2, 196606, 12, 2, 196606, 11, 2, 196606, 10, 2, 196606, 9, 2, 196606, 8, 2, 262142, 13, 2, 262142, 12, 2, 262142, 11, 2, 262142, 10, 2, 262142, 9, 2, 262142, 8, 2, 15, 8, 6, 15, 9, 6, 15, 10, 6, 15, 11, 6, 15, 12, 6, 15, 13, 6, 15, 14, 6, 65551, 8, 6, 65551, 9, 6, 65551, 10, 6, 65551, 11, 6, 65551, 12, 6, 65551, 13, 6, 65551, 14, 6, 131087, 8, 6, 131087, 9, 6, 131087, 10, 6, 131087, 11, 6, 131087, 12, 6, 131087, 13, 6, 131087, 14, 6, 196623, 8, 6, 196623, 9, 6, 196623, 10, 6, 196623, 11, 6, 196623, 12, 6, 196623, 13, 6, 196623, 14, 6)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="GridMapBootstrapper" type="Node" parent="Level" node_paths=PackedStringArray("Generator", "GridMap")]
+script = ExtResource("6_ter02")
+Generator = NodePath("../Generator")
+GridMap = NodePath("../GridMap")
+
+[node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
+transform = Transform3D(-0.917456, 0, -0.397836, 0, 1, 0, 0.397836, 0, -0.917456, 13.189, 0.269051, 40.9991)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0551419, 0.998479, 0, -0.998479, -0.0551419, 11.9315, 16.6308, 21.6504)
+spot_range = 36.444
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6687, 5.03352, 14.9799)
+omni_range = 18.617
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(7.54979e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 7.54979e-08, -3.30012e-15, 29.9835, 5.01811, 21.8516)
+extents = Vector3(4, 0.1, 3.8)
+texture_albedo = ExtResource("8_l3m55")
+emission_energy = 5.59
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00106468, 0.999999, 0, -0.999999, -0.00106468, 14.1804, 7.95649, 44.0991)
+light_energy = 9.14
+spot_range = 36.444
