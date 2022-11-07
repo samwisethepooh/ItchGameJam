@@ -39,5 +39,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9268, 1.84111, -8.7033)
 [node name="LargeStone (2)" parent="." instance=ExtResource("5_rgtw8")]
 transform = Transform3D(-0.628683, 0, 0.777662, 0, 1, 0, -0.777662, 0, -0.628683, 30.45, -0.221902, -4.14314)
 
-[node name="Lever" parent="." instance=ExtResource("6_v6qjc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -8.94805)
+[node name="Lever" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("6_v6qjc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -7.24966)
+Target = NodePath("../Lever2")
+
+[node name="Lever2" parent="." instance=ExtResource("6_v6qjc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -10.8117)
+
+[node name="Lever3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("6_v6qjc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -9.11117)
+Target = NodePath("../Lever")
