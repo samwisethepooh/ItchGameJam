@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Source/Mobs/Minotaur.cs" id="1_15vo4"]
 [ext_resource type="AnimationLibrary" uid="uid://bessp12qoayxa" path="res://Animations/Movement.res" id="2_22kxy"]
-[ext_resource type="PackedScene" uid="uid://1of8kddgmw18" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
+[ext_resource type="PackedScene" uid="uid://ceddt6h38l1j2" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
 [ext_resource type="Script" path="res://Source/Behaviour/CharacterPerceptionBehaviour.cs" id="4_4nlm1"]
 [ext_resource type="Script" path="res://Source/Mobs/MobController.cs" id="4_jmmc3"]
 [ext_resource type="Script" path="res://Source/Behaviour/DisengagementBehaviour.cs" id="6_nxk1l"]
@@ -46,7 +46,7 @@ script = ExtResource("7_4mnad")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.79567, -3.3597)
-light_color = Color(1, 0, 0.0196078, 1)
+light_color = Color(0.968627, 1, 0.937255, 1)
 spot_range = 3.0
 
 [node name="VisionManager" parent="." instance=ExtResource("8_w7pjv")]

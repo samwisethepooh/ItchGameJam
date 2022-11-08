@@ -26,7 +26,7 @@ environment = SubResource("Environment_l5pxq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99403, 1.53223, -12.2892)
 
 [node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
-transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8795, 0.269051, -9.69181)
+transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8795, 0.269051, -3.89665)
 
 [node name="Sections" type="Node3D" parent="."]
 
