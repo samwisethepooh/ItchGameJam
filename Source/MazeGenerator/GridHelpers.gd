@@ -1,7 +1,6 @@
-const Maze = preload("res://Scenes/MazeGenerator/Maze.gd") 
-const XYDirectionBiasMultiplier = 50;
+const XYDirectionBiasMultiplier = 10;
 const Randomness = 10;
-const MaxSegmentLength = 5;
+const MaxSegmentLength = 4;
 
 static func randomNumber(lowest, highest):
 	var rng = RandomNumberGenerator.new()
@@ -85,9 +84,10 @@ static func createMultiCheckpointMaze(height, width):
 	var grid = createEmptyGrid(height, width)
 	var numberOfPoints = 15;
 	var allPoints = []
-	for p in range(0, numberOfPoints):
+	allPoints.append(Vector2(0, 0))
+	for p in range(0, numberOfPoints-2):
 		allPoints.append(Vector2(randomInt(0, width-1), randomInt(0, height-1)))
-
+	allPoints.append(Vector2(width-1, height-1))
 	
 	var i = 0;
 	var currentPoint = 1;
@@ -104,7 +104,7 @@ static func createMultiCheckpointMaze(height, width):
 			print("Max loop count hit")
 			return;
 		
-		if(isCloseTo(currentPosition, allPoints[currentPoint], 7)):
+		if(isCloseTo(currentPosition, allPoints[currentPoint], 0)):
 			currentPoint += 1;
 			if(currentPoint == numberOfPoints):
 				return grid;

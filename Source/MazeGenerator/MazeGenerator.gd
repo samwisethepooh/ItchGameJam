@@ -1,15 +1,18 @@
+
 extends Node
 
+@export var scenes: Array[PackedScene] = []
+
 var floor = preload("res://Scenes/Floor/Floor.tscn")
-var floorSection = preload("res://Scenes/MazeGenerator/ExampleSection.tscn")
-const GridHelpers = preload("res://Scenes/MazeGenerator/GridHelpers.gd")
-var walls = preload("res://Scenes/MazeGenerator/Walls.tscn")
-var door = preload("res://Scenes/Door/door.tscn")
-var doors = preload("res://Scenes/MazeGenerator/Doors.tscn")
+var floorSection = preload("res://Scenes/Sections/Template.tscn")
+const GridHelpers = preload("res://Source/MazeGenerator/GridHelpers.gd")
+#var walls = preload("res://Scenes/MazeGenerator/Walls.tscn")
+#var door = preload("res://Scenes/Door/door.tscn")
+#var doors = preload("res://Scenes/MazeGenerator/Doors.tscn")
 var player =  preload("res://Scenes/Player/player.tscn")
 
-var height = 27;
-var width = 27;
+var height = 10;
+var width = 10;
 
 var maze = GridHelpers.createMultiCheckpointMaze(height, width);
 var floorGrid = maze.grid;
@@ -27,31 +30,34 @@ func withinGridBounds(x, y):
 		return false;
 	return true;
 
+func getRandomScene():
+	return scenes[GridHelpers.randomInt(0, scenes.size()-1)];
+
 func spawnFloorSection(x, y):
-	var floorInst = floorSection.instantiate()
+	var floorInst = getRandomScene().instantiate()
 	floorInst.position.x = x*24;
 	floorInst.position.y = 0;
 	floorInst.position.z = y*24;
 	self.add_child(floorInst);
 	
-func spawnWalls(x, y):
-	var wallsInst = walls.instantiate()
-	wallsInst.position.x = x*24;
-	wallsInst.position.y = 0;
-	wallsInst.position.z = y*24;
-	self.add_child(wallsInst);
-	
-func spawnDoors(x, y):
-	var doorsInst = doors.instantiate()
-	doorsInst.position.x = x*24;
-	doorsInst.position.y = 0;
-	doorsInst.position.z = y*24;
-	self.add_child(doorsInst);
-	var one = !withinGridBounds(x, y+1) or floorGrid[y+1][x] == 1;
-	var two = !withinGridBounds(x+1, y) or floorGrid[y][x+1] == 1;
-	var three = !withinGridBounds(x, y-1) or floorGrid[y-1][x] == 1;
-	var four = !withinGridBounds(x-1, y) or floorGrid[y][x-1] == 1;
-	doorsInst.disableDoors(one, two, three, four)
+#func spawnWalls(x, y):
+#	var wallsInst = walls.instantiate()
+#	wallsInst.position.x = x*24;
+#	wallsInst.position.y = 0;
+#	wallsInst.position.z = y*24;
+#	self.add_child(wallsInst);
+#
+#func spawnDoors(x, y):
+#	var doorsInst = doors.instantiate()
+#	doorsInst.position.x = x*24;
+#	doorsInst.position.y = 0;
+#	doorsInst.position.z = y*24;
+#	self.add_child(doorsInst);
+#	var one = !withinGridBounds(x, y+1) or floorGrid[y+1][x] == 1;
+#	var two = !withinGridBounds(x+1, y) or floorGrid[y][x+1] == 1;
+#	var three = !withinGridBounds(x, y-1) or floorGrid[y-1][x] == 1;
+#	var four = !withinGridBounds(x-1, y) or floorGrid[y][x-1] == 1;
+#	doorsInst.disableDoors(one, two, three, four)
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -63,7 +69,7 @@ func _ready():
 		for y in range(height):
 			if(floorGrid[y][x] == 1):
 				spawnFloorSection(x, y);
-				spawnWalls(x, y);
-				spawnDoors(x, y);
+#				spawnWalls(x, y);
+#				spawnDoors(x, y);
 
 
