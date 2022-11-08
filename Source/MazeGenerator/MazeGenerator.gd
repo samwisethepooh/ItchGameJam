@@ -2,28 +2,21 @@
 extends Node
 
 @export var scenes: Array[PackedScene] = []
+@export var directionBias : float;
+@export var randomness : float;
+@export var minLengthRun : int;
+@export var maxLengthRun : int;
+@export var numberOfExtraPoints : int;
+@export var mazeSize : int;
 
-var floor = preload("res://Scenes/Floor/Floor.tscn")
 var floorSection = preload("res://Scenes/Sections/Template.tscn")
 const GridHelpers = preload("res://Source/MazeGenerator/GridHelpers.gd")
-#var walls = preload("res://Scenes/MazeGenerator/Walls.tscn")
-#var door = preload("res://Scenes/Door/door.tscn")
-#var doors = preload("res://Scenes/MazeGenerator/Doors.tscn")
 var player =  preload("res://Scenes/Player/player.tscn")
 
-var height = 10;
-var width = 10;
+var height = mazeSize;
+var width = mazeSize;
 
-var maze = GridHelpers.createMultiCheckpointMaze(height, width);
-var floorGrid = maze.grid;
-var startPosition = maze.startPosition;
-
-func existsWithinBlock(y, x):
-	for i in range(0, 3):
-		for j in range(0, 3):
-			if(floorGrid[y+i][x+j] == 1):
-				return true;
-	return false;
+var maze;
 
 func withinGridBounds(x, y):
 	if(x < 0 or x >= width or y < 0 or y >= height):
@@ -62,12 +55,16 @@ func spawnFloorSection(x, y):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	maze = GridHelpers.createMultiCheckpointMaze(mazeSize, mazeSize, directionBias, randomness, minLengthRun, maxLengthRun, numberOfExtraPoints);
+	height = mazeSize;
+	width = mazeSize;
+	print(mazeSize)
 	var playerInst = player.instantiate()
-	playerInst.position = Vector3(24*startPosition.x + 12, 1, 24*startPosition.y + 12);
+	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);
 	self.add_child(playerInst);		
 	for x in range(width):
 		for y in range(height):
-			if(floorGrid[y][x] == 1):
+			if(maze.grid[y][x] == 1):
 				spawnFloorSection(x, y);
 #				spawnWalls(x, y);
 #				spawnDoors(x, y);

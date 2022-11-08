@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwbh4p7lmouv5"]
+
+[ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
+[ext_resource type="PackedScene" uid="uid://bibt05fq3ypju" path="res://Scenes/Sections/Template.tscn" id="6_6cqul"]
+[ext_resource type="Script" path="res://Source/MazeGenerator/MazeGenerator.gd" id="6_m7w62"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
+
+[sub_resource type="Sky" id="Sky_ivwug"]
+sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
+
+[sub_resource type="Environment" id="Environment_l5pxq"]
+background_mode = 2
+background_color = Color(0.2139, 0.570975, 0.69, 1)
+sky = SubResource("Sky_ivwug")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_te0pu"]
+
+[node name="Level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_l5pxq")
+
+[node name="Minotaur" parent="." instance=ExtResource("5_vdmbx")]
+transform = Transform3D(-0.0440549, 0, 0.999029, 0, 1, 0, -0.999029, 0, -0.0440549, 26.8931, 0.315186, -3.8974)
+
+[node name="MazeGen" type="Node3D" parent="."]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -4.26164, 2.52489, 2.92147)
+script = ExtResource("6_m7w62")
+scenes = [ExtResource("6_6cqul"), ExtResource("6_6cqul")]
+directionBias = 0.0
+randomness = 50.0
+minLengthRun = 3
+maxLengthRun = 5
+numberOfExtraPoints = 6
+mazeSize = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MazeGen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+shape = SubResource("WorldBoundaryShape3D_te0pu")

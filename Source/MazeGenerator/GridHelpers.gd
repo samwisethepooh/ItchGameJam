@@ -1,7 +1,3 @@
-const XYDirectionBiasMultiplier = 10;
-const Randomness = 10;
-const MaxSegmentLength = 4;
-
 static func randomNumber(lowest, highest):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -53,21 +49,6 @@ static func fillLine(grid, pos1, pos2):
 			for i in range(min(pos1.y, pos2.y), max(pos1.y, pos2.y)+1):
 				grid[i][pos1.x] = 1;
 				
-static func createBinaryGrid(height, width):
-	var a = []
-
-	for y in range(height):
-		a.append([])
-		a[y].resize(width)
-		
-		for x in range(width):
-			if(true):
-				a[y][x] = 1
-			else:
-				a[y][x] = 0	
-
-	return a
-
 static func createEmptyGrid(height, width):
 	var a = []
 
@@ -80,12 +61,13 @@ static func createEmptyGrid(height, width):
 
 	return a
 	
-static func createMultiCheckpointMaze(height, width):
+static func createMultiCheckpointMaze(height, width, directionBias, randomness, minLengthRun, maxLengthRun, extraTargetPoints):
 	var grid = createEmptyGrid(height, width)
-	var numberOfPoints = 15;
+	var numberOfPoints = extraTargetPoints+2;
 	var allPoints = []
 	allPoints.append(Vector2(0, 0))
-	for p in range(0, numberOfPoints-2):
+	print(extraTargetPoints);
+	for p in range(0, extraTargetPoints):
 		allPoints.append(Vector2(randomInt(0, width-1), randomInt(0, height-1)))
 	allPoints.append(Vector2(width-1, height-1))
 	
@@ -98,25 +80,27 @@ static func createMultiCheckpointMaze(height, width):
 	
 	print(allPoints)
 	
-	while !isCloseTo(currentPosition,allPoints[numberOfPoints-1], 2):
+	while !isCloseTo(currentPosition,allPoints[numberOfPoints-1], 0):
 		i+=1;
 		if(i == 50000):
 			print("Max loop count hit")
 			return;
 		
-		if(isCloseTo(currentPosition, allPoints[currentPoint], 0)):
+		if(isCloseTo(currentPosition, allPoints[currentPoint], 2)):
 			currentPoint += 1;
 			if(currentPoint == numberOfPoints):
-				return grid;
+				return {'grid':grid, 'startPosition':allPoints[0]}
 		var towardsMultiplier = getUnitDifference(allPoints[currentPoint], currentPosition)
 		
-		var xBias = XYDirectionBiasMultiplier/width * abs(currentPosition.x - allPoints[currentPoint].x) - abs(currentPosition.y - allPoints[currentPoint].y);
+		var xBias = directionBias/width * abs(currentPosition.x - allPoints[currentPoint].x) - abs(currentPosition.y - allPoints[currentPoint].y);
 		
-		movement = randomMovement(randomInt(1, MaxSegmentLength), towardsMultiplier, xBias, Randomness);
+		movement = randomMovement(randomInt(minLengthRun, maxLengthRun), towardsMultiplier, xBias, randomness);
 		nextPosition = currentPosition + movement;
 		
 		if(isWithinBounds(nextPosition, width, height)):
 			fillLine(grid, currentPosition, nextPosition);
 			currentPosition = nextPosition;			
 	
+	print(grid)
+	print(allPoints[0])
 	return {'grid':grid, 'startPosition':allPoints[0]}
