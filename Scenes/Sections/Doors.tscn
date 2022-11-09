@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv7s2de6qdsd4"]
 
 [ext_resource type="Script" path="res://Source/MazeGenerator/doors.gd" id="1_hxbpu"]
-[ext_resource type="PackedScene" path="res://Scenes/Level/Gateway.tscn" id="1_xe8hr"]
+[ext_resource type="PackedScene" uid="uid://cbobc00ao7dg7" path="res://Scenes/Level/Gateway.tscn" id="1_xe8hr"]
 
 [node name="RoomDoors" type="Node3D" node_paths=PackedStringArray("northDoor", "southDoor", "eastDoor", "westDoor")]
 script = ExtResource("1_hxbpu")

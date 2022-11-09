@@ -5,19 +5,22 @@ extends CharacterBody3D
 @export var _bullet_scene : PackedScene
 
 var gravityToggle = true;
+var lightToggle = false;
 var mouseSensibility = 1200
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 const SPEED = 5.0
 const JUMP_VELOCITY = 6.5
 
-
+var lantern : Node
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	#Captures mouse and stops rgun from hitting yourself
 	gunRay.add_exception(self)
+	lantern = $lantern2
+	lantern.visible = false;
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 func _physics_process(delta):
@@ -41,6 +44,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ToggleGravity"):
 		gravityToggle = !gravityToggle;
+		
+	if Input.is_action_just_pressed("ToggleLight"):
+		lightToggle = !lightToggle;
+		print(lightToggle)
+		lantern.visible = lightToggle;
 		
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector("moveLeft", "moveRight", "moveUp", "moveDown")

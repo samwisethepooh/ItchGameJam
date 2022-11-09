@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ba4vfwb20cbp5" path="res://Images/storm.png" id="2_qjk0d"]
 [ext_resource type="Texture2D" uid="uid://dd612uthv7xb5" path="res://Images/storm2.png" id="3_kmvq6"]
 [ext_resource type="Texture2D" uid="uid://wb0vsuyhev4d" path="res://Images/wine.png" id="4_1jufg"]
-[ext_resource type="PackedScene" path="res://Scenes/Level/Gateway.tscn" id="7_pccfx"]
+[ext_resource type="PackedScene" uid="uid://cbobc00ao7dg7" path="res://Scenes/Level/Gateway.tscn" id="7_pccfx"]
 
 [node name="Floor1Approach" type="Node3D"]
 
