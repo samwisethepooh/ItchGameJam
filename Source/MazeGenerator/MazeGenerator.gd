@@ -25,8 +25,8 @@ func withinGridBounds(x, y):
 	return true;
 
 func groupGridNumbers(grid):
-	for roomSize in validRommShapesOrdered:
-		var groupedGrid = GridHelpers.createEmptyNullGrid(width, height);
+	var groupedGrid = GridHelpers.createEmptyNullGrid(width, height);
+	for roomSize in validRommShapesOrdered:		
 		for x in range(width-1):
 			for y in range(height-1):
 				if(groupedGrid[y][x] == null):
@@ -47,16 +47,20 @@ func groupGridNumbers(grid):
 						allY.append(tempY)
 						lastY += 1;
 						tempY += 1;
+
+					if(lastY == roomSize.Y and lastX == roomSize.X):
+						var anyGridPartsTaken = false;
+						for i in allX:
+							for j in allY:	
+								if(groupedGrid[j][i]) != null:
+									anyGridPartsTaken = true;
 						
-					
-						
-						
-					for i in allX:
-						for j in allY:
-							groupedGrid[j][i] = {"X": lastX, "Y": lastY};
-				else:
-					pass
-		return groupedGrid;
+						if(!anyGridPartsTaken):
+							for i in allX:
+								for j in allY:
+									groupedGrid[j][i] = {"X": lastX, "Y": lastY};
+	print(groupedGrid)
+	return groupedGrid;
 			
 func getValidRoomShapes():
 	for room in scenes:
@@ -65,20 +69,15 @@ func getValidRoomShapes():
 		roomInst.queue_free();
 	validRommShapesOrdered = validRoomShapes.duplicate()
 	validRommShapesOrdered.sort_custom(Callable(self, "sortRoomSizes"))
-	print(validRoomShapes)
+	print(validRommShapesOrdered)
 
 func sortRoomSizes(roomSize1, roomSize2):
 		return (roomSize1.X + roomSize1.Y) > (roomSize2.X + roomSize2.Y)
 		
 func getRandomScene(roomSize):
 	var randomNumber;
-	var foundApplicableRoom = false;		
-	if(!validRoomShapes.has(roomSize)):
-		print("Cannot use this room size:" +  str(roomSize.X) + ", " + str(roomSize.Y));
-		roomSize = {"X": 1, "Y": 1};
-		return null;
-	else:
-		print("valid room of size:" + str(roomSize.X) + ", " + str(roomSize.Y))	
+	var foundApplicableRoom = false;
+	
 	while(!foundApplicableRoom):
 		randomNumber = GridHelpers.randomInt(0, scenes.size()-1);
 		var roomToMake = scenes[randomNumber];
@@ -96,8 +95,7 @@ func spawnFloorSection(x, y, roomSize, filledGrid):
 	floorInst.position.y = 0;
 	floorInst.position.z = y*24;
 	self.add_child(floorInst);
-	var actualRoomSize = {"X": floorInst.X, "Y": floorInst.Y}
-	fillGridFromBy(filledGrid, x, y, actualRoomSize)
+	fillGridFromBy(filledGrid, x, y, roomSize)
 	
 func fillGridFromBy(filledGrid, x, y, roomSize):
 	if(y == 14 or x == 14):
@@ -114,13 +112,12 @@ func _ready():
 	maze = GridHelpers.createMultiCheckpointMaze(mazeSize, mazeSize, directionBias, randomness, minLengthRun, maxLengthRun, numberOfExtraPoints);
 	var filledGrid = GridHelpers.createEmptyGrid(mazeSize, mazeSize)
 	var groupedGrid = groupGridNumbers(maze.grid);
-	print(mazeSize)
 	var playerInst = player.instantiate()
 	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);
 	self.add_child(playerInst);		
 	for x in range(width):
 		for y in range(height):
-			if(maze.grid[y][x] == 1 && filledGrid[y][x] != 1):
+			if(maze.grid[y][x] == 1 && filledGrid[y][x] == 0):
 				spawnFloorSection(x, y, groupedGrid[y][x], filledGrid);
 #				spawnWalls(x, y);
 #				spawnDoors(x, y);

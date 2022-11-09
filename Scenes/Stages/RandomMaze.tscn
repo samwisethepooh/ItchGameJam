@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bxg5260nv116l" path="res://Scenes/Sections/TestLevel2.tscn" id="4_8j2j1"]
 [ext_resource type="PackedScene" uid="uid://bfan168j5v3p8" path="res://Scenes/Sections/TestLevel3.tscn" id="5_0rxq0"]
 [ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
-[ext_resource type="PackedScene" path="res://Scenes/Sections/TestLevel4.tscn" id="6_foeps"]
+[ext_resource type="PackedScene" uid="uid://cblih8n5m45xa" path="res://Scenes/Sections/TestLevel4.tscn" id="6_foeps"]
 [ext_resource type="Script" path="res://Source/MazeGenerator/MazeGenerator.gd" id="6_m7w62"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6g5uc"]
