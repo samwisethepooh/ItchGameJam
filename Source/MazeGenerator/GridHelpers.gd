@@ -60,6 +60,18 @@ static func createEmptyGrid(height, width):
 				a[y][x] = 0	
 
 	return a
+
+static func createEmptyNullGrid(height, width):
+	var a = []
+
+	for y in range(height):
+		a.append([])
+		a[y].resize(width)
+		
+		for x in range(width):
+				a[y][x] = null
+
+	return a
 	
 static func createMultiCheckpointMaze(height, width, directionBias, randomness, minLengthRun, maxLengthRun, extraTargetPoints):
 	var grid = createEmptyGrid(height, width)
