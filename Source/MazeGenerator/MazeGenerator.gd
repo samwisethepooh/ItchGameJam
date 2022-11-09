@@ -65,8 +65,6 @@ func groupGridNumbers(grid):
 								setUpDoors(grid, doorGrid, x, y, i, j, roomSize)
 								groupedGrid[y+j][x+i] = roomSize;
 								
-	for doors in doorGrid:
-		print(doors);
 	return {"groupedGrid": groupedGrid, "doorGrid": doorGrid};
 			
 func getValidRoomShapes():
@@ -131,8 +129,8 @@ func _ready():
 	var groupedGrid = groupings.groupedGrid;
 	var doorGrid = groupings.doorGrid;
 	var playerInst = player.instantiate()
-	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);
-	self.add_child(playerInst);		
+	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);	
+	self.add_child(playerInst);
 	for x in range(width):
 		for y in range(height):
 			if(maze.grid[y][x] == 1 && filledGrid[y][x] == 0):
