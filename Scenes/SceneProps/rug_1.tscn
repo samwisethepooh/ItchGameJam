@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbto67l1ixltq"]
+
+[ext_resource type="PackedScene" uid="uid://dbh66xs30kxyf" path="res://Models/Props/Rug1.glb" id="1_x8bdl"]
+
+[node name="Rug1" instance=ExtResource("1_x8bdl")]
+
+[node name="Carpet_Red" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.153482, 0, -0.0707288)

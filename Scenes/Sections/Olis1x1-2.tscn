@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3qlsfondm7if"]
+[gd_scene load_steps=3 format=3 uid="uid://8egqqob4sd76"]
 
 [ext_resource type="Script" path="res://Source/MazeGenerator/Room.gd" id="1_gdq7v"]
 [ext_resource type="ArrayMesh" uid="uid://bbu7dpy528qux" path="res://Models/Level/brickblock.obj" id="2_w6t8s"]
