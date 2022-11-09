@@ -21,7 +21,6 @@ public partial class VisionManager : Node3D
 	private bool IsWithinProximity(Node3D target)
 	{
 		var distance = (GlobalTransform.origin - target.GlobalTransform.origin).Length();
-		GD.Print(distance);
 		return distance <= ProximityThreshold;
     }
 
