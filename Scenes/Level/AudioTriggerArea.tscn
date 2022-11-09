@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bahiym17rfq1y"]
+
+[ext_resource type="Script" path="res://Source/Level/AudioTriggerArea.cs" id="1_0xvtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g103j"]
+size = Vector3(5, 5, 5)
+
+[node name="AudioTriggerArea" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45564, 2.66334, -9.78702)
+script = ExtResource("1_0xvtk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_g103j")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
