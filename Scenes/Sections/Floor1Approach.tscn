@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnehhqwbinx7d"]
+[gd_scene load_steps=6 format=3 uid="uid://dnehhqwbinx7d"]
 
 [ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="1_cydnl"]
 [ext_resource type="Texture2D" uid="uid://ba4vfwb20cbp5" path="res://Images/storm.png" id="2_qjk0d"]
 [ext_resource type="Texture2D" uid="uid://dd612uthv7xb5" path="res://Images/storm2.png" id="3_kmvq6"]
 [ext_resource type="Texture2D" uid="uid://wb0vsuyhev4d" path="res://Images/wine.png" id="4_1jufg"]
-[ext_resource type="PackedScene" uid="uid://bjg7sn7fertx4" path="res://Scenes/Level/LargeStone2.tscn" id="5_rgtw8"]
-[ext_resource type="PackedScene" uid="uid://v1jlk2amc23f" path="res://Scenes/Level/Lever.tscn" id="6_v6qjc"]
-[ext_resource type="PackedScene" uid="uid://wheunxv8qday" path="res://Scenes/Level/Gateway.tscn" id="7_pccfx"]
+[ext_resource type="PackedScene" path="res://Scenes/Level/Gateway.tscn" id="7_pccfx"]
 
 [node name="Floor1Approach" type="Node3D"]
 
@@ -38,23 +36,5 @@ emission_energy = 5.59
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9268, 1.84111, -8.7033)
 omni_range = 4096.0
 
-[node name="LargeStone (2)" parent="." instance=ExtResource("5_rgtw8")]
-transform = Transform3D(-0.628683, 0, 0.777662, 0, 1, 0, -0.777662, 0, -0.628683, 30.45, -0.221902, -4.14314)
-
-[node name="Lever" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("6_v6qjc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -7.24966)
-Target = NodePath("../Lever2")
-
-[node name="Lever2" parent="." instance=ExtResource("6_v6qjc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -10.8117)
-
-[node name="Lever3" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("6_v6qjc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.9534, 0.194522, -9.11117)
-Target = NodePath("../Lever")
-
 [node name="Gateway" parent="." instance=ExtResource("7_pccfx")]
 transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 31.0194, 0.400718, -38.6723)
-
-[node name="Lever4" parent="." node_paths=PackedStringArray("Target") instance=ExtResource("6_v6qjc")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 27.0373, 0.202321, -33.1667)
-Target = NodePath("../Gateway")

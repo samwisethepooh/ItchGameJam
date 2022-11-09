@@ -8,7 +8,8 @@ extends Node
 @export var maxLengthRun : int;
 @export var numberOfExtraPoints : int;
 @export var mazeSize : int;
-
+var validRoomShapes = [];
+var validRommShapesOrdered = [];
 var floorSection = preload("res://Scenes/Sections/Template.tscn")
 const GridHelpers = preload("res://Source/MazeGenerator/GridHelpers.gd")
 var player =  preload("res://Scenes/Player/player.tscn")
@@ -23,49 +24,104 @@ func withinGridBounds(x, y):
 		return false;
 	return true;
 
-func getRandomScene():
-	return scenes[GridHelpers.randomInt(0, scenes.size()-1)];
+func groupGridNumbers(grid):
+	for roomSize in validRommShapesOrdered:
+		var groupedGrid = GridHelpers.createEmptyNullGrid(width, height);
+		for x in range(width-1):
+			for y in range(height-1):
+				if(groupedGrid[y][x] == null):
+					
+						
+					var tempX = x+1;
+					var lastX = 1;
+					var allX = [x];
+					while(lastX != roomSize.X && tempX < width && grid[y][tempX] == 1):
+						allX.append(tempX)
+						lastX += 1;
+						tempX += 1;
+					
+					var tempY = y+1;
+					var lastY = 1;
+					var allY = [y];
+					while(lastY != roomSize.Y && tempY < height && grid[tempY][x] == 1):
+						allY.append(tempY)
+						lastY += 1;
+						tempY += 1;
+						
+					
+						
+						
+					for i in allX:
+						for j in allY:
+							groupedGrid[j][i] = {"X": lastX, "Y": lastY};
+				else:
+					pass
+		return groupedGrid;
+			
+func getValidRoomShapes():
+	for room in scenes:
+		var roomInst = room.instantiate();
+		validRoomShapes.append({"X": roomInst.X, "Y": roomInst.Y})
+		roomInst.queue_free();
+	validRommShapesOrdered = validRoomShapes.duplicate()
+	validRommShapesOrdered.sort_custom(Callable(self, "sortRoomSizes"))
+	print(validRoomShapes)
 
-func spawnFloorSection(x, y):
-	var floorInst = getRandomScene().instantiate()
+func sortRoomSizes(roomSize1, roomSize2):
+		return (roomSize1.X + roomSize1.Y) > (roomSize2.X + roomSize2.Y)
+		
+func getRandomScene(roomSize):
+	var randomNumber;
+	var foundApplicableRoom = false;		
+	if(!validRoomShapes.has(roomSize)):
+		print("Cannot use this room size:" +  str(roomSize.X) + ", " + str(roomSize.Y));
+		roomSize = {"X": 1, "Y": 1};
+		return null;
+	else:
+		print("valid room of size:" + str(roomSize.X) + ", " + str(roomSize.Y))	
+	while(!foundApplicableRoom):
+		randomNumber = GridHelpers.randomInt(0, scenes.size()-1);
+		var roomToMake = scenes[randomNumber];
+		var roomShape = validRoomShapes[randomNumber]
+		
+		if(roomShape.X == roomSize.X and roomShape.Y == roomSize.Y):
+			return roomToMake.instantiate()
+			
+
+func spawnFloorSection(x, y, roomSize, filledGrid):
+	if(roomSize == null):
+		return;
+	var floorInst = getRandomScene(roomSize)
 	floorInst.position.x = x*24;
 	floorInst.position.y = 0;
 	floorInst.position.z = y*24;
 	self.add_child(floorInst);
+	var actualRoomSize = {"X": floorInst.X, "Y": floorInst.Y}
+	fillGridFromBy(filledGrid, x, y, actualRoomSize)
 	
-#func spawnWalls(x, y):
-#	var wallsInst = walls.instantiate()
-#	wallsInst.position.x = x*24;
-#	wallsInst.position.y = 0;
-#	wallsInst.position.z = y*24;
-#	self.add_child(wallsInst);
-#
-#func spawnDoors(x, y):
-#	var doorsInst = doors.instantiate()
-#	doorsInst.position.x = x*24;
-#	doorsInst.position.y = 0;
-#	doorsInst.position.z = y*24;
-#	self.add_child(doorsInst);
-#	var one = !withinGridBounds(x, y+1) or floorGrid[y+1][x] == 1;
-#	var two = !withinGridBounds(x+1, y) or floorGrid[y][x+1] == 1;
-#	var three = !withinGridBounds(x, y-1) or floorGrid[y-1][x] == 1;
-#	var four = !withinGridBounds(x-1, y) or floorGrid[y][x-1] == 1;
-#	doorsInst.disableDoors(one, two, three, four)
+func fillGridFromBy(filledGrid, x, y, roomSize):
+	if(y == 14 or x == 14):
+		return #This is a bug from somewhere that should be fixed really
+	filledGrid[y][x] = 1;
+	for xOffset in range(roomSize.X):
+		for yOffset in range(roomSize.Y):
+			filledGrid[y + yOffset][x + xOffset] = 1;
 	
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	maze = GridHelpers.createMultiCheckpointMaze(mazeSize, mazeSize, directionBias, randomness, minLengthRun, maxLengthRun, numberOfExtraPoints);
 	height = mazeSize;
 	width = mazeSize;
+	getValidRoomShapes();
+	maze = GridHelpers.createMultiCheckpointMaze(mazeSize, mazeSize, directionBias, randomness, minLengthRun, maxLengthRun, numberOfExtraPoints);
+	var filledGrid = GridHelpers.createEmptyGrid(mazeSize, mazeSize)
+	var groupedGrid = groupGridNumbers(maze.grid);
 	print(mazeSize)
 	var playerInst = player.instantiate()
 	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);
 	self.add_child(playerInst);		
 	for x in range(width):
 		for y in range(height):
-			if(maze.grid[y][x] == 1):
-				spawnFloorSection(x, y);
+			if(maze.grid[y][x] == 1 && filledGrid[y][x] != 1):
+				spawnFloorSection(x, y, groupedGrid[y][x], filledGrid);
 #				spawnWalls(x, y);
 #				spawnDoors(x, y);
 
