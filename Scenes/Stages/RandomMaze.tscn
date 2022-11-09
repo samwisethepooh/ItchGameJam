@@ -16,7 +16,7 @@ sky_material = SubResource("ProceduralSkyMaterial_6g5uc")
 [sub_resource type="Environment" id="Environment_l5pxq"]
 background_mode = 2
 background_color = Color(0.2139, 0.570975, 0.69, 1)
-background_energy_multiplier = 0.12
+background_energy_multiplier = 0.05
 sky = SubResource("Sky_ivwug")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_te0pu"]

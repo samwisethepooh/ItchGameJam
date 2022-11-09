@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://drsfg7o2q77d3"]
+[gd_scene load_steps=5 format=3 uid="uid://drsfg7o2q77d3"]
 
 [ext_resource type="Script" path="res://Source/MazeGenerator/Room.gd" id="1_036wu"]
 [ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="1_cydnl"]
 [ext_resource type="PackedScene" uid="uid://cwfdmgt1vi0ui" path="res://Scenes/SceneProps/table.tscn" id="3_ctcq4"]
+[ext_resource type="PackedScene" uid="uid://cyh50clspyn8h" path="res://Scenes/SceneProps/SmallCandle1.tscn" id="4_5v04b"]
 
 [node name="Floor1Entrance" type="Node3D"]
 script = ExtResource("1_036wu")
@@ -71,3 +72,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2547, -1.00649, 12.352)
 
 [node name="Table20" parent="." instance=ExtResource("3_ctcq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.16467, -1.00649, 12.352)
+
+[node name="SmallCandle1" parent="." instance=ExtResource("4_5v04b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5697, -0.111755, 11.3375)
+
+[node name="SmallCandle2" parent="." instance=ExtResource("4_5v04b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2989, -0.111755, 12.4405)

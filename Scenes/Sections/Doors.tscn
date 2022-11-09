@@ -1,23 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv7s2de6qdsd4"]
 
 [ext_resource type="Script" path="res://Source/MazeGenerator/doors.gd" id="1_hxbpu"]
-[ext_resource type="PackedScene" uid="uid://cbobc00ao7dg7" path="res://Scenes/Level/Gateway.tscn" id="1_xe8hr"]
+[ext_resource type="PackedScene" uid="uid://pglkdingi3fq" path="res://Scenes/SceneProps/gate.tscn" id="2_q8m14"]
 
 [node name="RoomDoors" type="Node3D" node_paths=PackedStringArray("northDoor", "southDoor", "eastDoor", "westDoor")]
 script = ExtResource("1_hxbpu")
-northDoor = NodePath("Gateway")
-southDoor = NodePath("Gateway2")
-eastDoor = NodePath("Gateway4")
-westDoor = NodePath("Gateway3")
+northDoor = NodePath("Gate")
+southDoor = NodePath("Gate2")
+eastDoor = NodePath("Gate4")
+westDoor = NodePath("Gate3")
 
-[node name="Gateway" parent="." instance=ExtResource("1_xe8hr")]
-transform = Transform3D(0.25, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 12.5957, 0.122848, 0.384083)
+[node name="Gate" parent="." instance=ExtResource("2_q8m14")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 12.6792, -1.34372, 0.471473)
 
-[node name="Gateway2" parent="." instance=ExtResource("1_xe8hr")]
-transform = Transform3D(0.25, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 12.5957, 0.122848, 23.3938)
+[node name="Gate2" parent="." instance=ExtResource("2_q8m14")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 12.6792, -1.34372, 23.1028)
 
-[node name="Gateway3" parent="." instance=ExtResource("1_xe8hr")]
-transform = Transform3D(-1.09278e-08, 0, 0.1, 0, 0.4, 0, -0.25, 0, -4.37114e-09, 0.333646, 0.122848, 11.6584)
+[node name="Gate3" parent="." instance=ExtResource("2_q8m14")]
+transform = Transform3D(-6.99382e-08, 0, 1.6, 0, 1.6, 0, -1.6, 0, -6.99382e-08, 0.502623, -1.34372, 11.7618)
 
-[node name="Gateway4" parent="." instance=ExtResource("1_xe8hr")]
-transform = Transform3D(-1.09278e-08, 0, 0.1, 0, 0.4, 0, -0.25, 0, -4.37114e-09, 23.6829, 0.122848, 11.6584)
+[node name="Gate4" parent="." instance=ExtResource("2_q8m14")]
+transform = Transform3D(-6.99382e-08, 0, 1.6, 0, 1.6, 0, -1.6, 0, -6.99382e-08, 23.6347, -1.34372, 11.7618)
