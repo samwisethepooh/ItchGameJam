@@ -78,7 +78,6 @@ static func createMultiCheckpointMaze(height, width, directionBias, randomness, 
 	var numberOfPoints = extraTargetPoints+2;
 	var allPoints = []
 	allPoints.append(Vector2(0, 0))
-	print(extraTargetPoints);
 	for p in range(0, extraTargetPoints):
 		allPoints.append(Vector2(randomInt(0, width-1), randomInt(0, height-1)))
 	allPoints.append(Vector2(width-1, height-1))
@@ -89,9 +88,7 @@ static func createMultiCheckpointMaze(height, width, directionBias, randomness, 
 	var currentPosition : Vector2 = Vector2(allPoints[0].x, allPoints[0].y);
 	var movement : Vector2;
 	var nextPosition : Vector2;
-	
-	print(allPoints)
-	
+
 	while !isCloseTo(currentPosition,allPoints[numberOfPoints-1], 0):
 		i+=1;
 		if(i == 50000):

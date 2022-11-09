@@ -1,5 +1,9 @@
 extends Node
 
+@export var northDoor : Node ;
+@export var southDoor : Node ;
+@export var eastDoor : Node ;
+@export var westDoor : Node ;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,13 +15,13 @@ func _process(delta):
 	pass
 
 
-func disableDoors(one, two, three, four):
-	if(one):
-		$Door.queue_free();
-	if(two):
-		$Door2.queue_free();
-	if(three):
-		$Door3.queue_free();
-	if(four):
-		$Door4.queue_free();
+func disableDoors(north, south, east, west):
+	if(north):
+		northDoor.queue_free();
+	if(south):
+		southDoor.queue_free();
+	if(east):
+		eastDoor.queue_free();
+	if(west):
+		westDoor.queue_free();
 	
