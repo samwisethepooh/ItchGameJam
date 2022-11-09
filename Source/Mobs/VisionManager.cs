@@ -4,10 +4,10 @@ using System.Linq;
 
 public partial class VisionManager : Node3D
 {
-    [Export] public float ConeArc { get; set; } = 60;
-    [Export] public float ProximityThreshold { get; set; } = 4.5f;
+	[Export] public float ConeArc { get; set; } = 60;
+	[Export] public float ProximityThreshold { get; set; } = 4.5f;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
 	}
 
@@ -22,7 +22,7 @@ public partial class VisionManager : Node3D
 	{
 		var distance = (GlobalTransform.origin - target.GlobalTransform.origin).Length();
 		return distance <= ProximityThreshold;
-    }
+	}
 
 	private bool IsInVisionCone(Node3D target)
 	{
@@ -41,6 +41,6 @@ public partial class VisionManager : Node3D
 			To = target.GlobalPosition
 		});
 		var collider = result["collider"];
-        return collider.Obj == target;
+		return collider.Obj == target;
 	}
 }

@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=3 uid="uid://boyu1s10xy1o0"]
+
+[ext_resource type="Script" path="res://Source/MazeGenerator/Room.gd" id="1_gdq7v"]
+[ext_resource type="ArrayMesh" uid="uid://bbu7dpy528qux" path="res://Models/Level/brickblock.obj" id="2_w6t8s"]
+
+[node name="Floor1Entrance" type="Node3D"]
+script = ExtResource("1_gdq7v")
+
+[node name="OmniLight3d" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.424, 1.38493, 12.9808)
+light_color = Color(0.45098, 0, 0.0745098, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 3.256
+
+[node name="OmniLight3d2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33447, 1.38493, 21.309)
+light_color = Color(0.45098, 0, 0.0745098, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 3.256
+
+[node name="OmniLight3d3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9138, 1.38493, 21.309)
+light_color = Color(0.45098, 0, 0.0745098, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 3.256
+
+[node name="OmniLight3d4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9138, 1.38493, 2.68611)
+light_color = Color(0.45098, 0, 0.0745098, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 3.256
+
+[node name="OmniLight3d5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10508, 1.38493, 2.68611)
+light_color = Color(0.45098, 0, 0.0745098, 1)
+light_energy = 10.0
+light_volumetric_fog_energy = 3.256
+
+[node name="Brickblock" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 3.72656)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 7.40006)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 11.2083)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 3.72656)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 7.40006)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 11.2083)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 3.72656)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 7.40006)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 11.2083)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42339, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14099, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8739, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock19" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7563, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7563, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7563, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock22" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4739, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock23" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4739, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock24" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4739, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock25" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2068, -3.32992, 15.0068)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock26" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2068, -3.32992, 18.6803)
+mesh = ExtResource("2_w6t8s")
+
+[node name="Brickblock27" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2068, -3.32992, 22.4885)
+mesh = ExtResource("2_w6t8s")

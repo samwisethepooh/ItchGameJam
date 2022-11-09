@@ -129,7 +129,7 @@ func _ready():
 	var groupedGrid = groupings.groupedGrid;
 	var doorGrid = groupings.doorGrid;
 	var playerInst = player.instantiate()
-	playerInst.position = Vector3(24*maze.startPosition.x + 12, 1, 24*maze.startPosition.y + 12);	
+	playerInst.position = Vector3(24*maze.startPosition.x + 12, 3, 24*maze.startPosition.y + 12);	
 	self.add_child(playerInst);
 	for x in range(width):
 		for y in range(height):
