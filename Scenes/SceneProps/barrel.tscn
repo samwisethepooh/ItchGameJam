@@ -4,12 +4,14 @@
 resource_name = "Wood_Basic"
 cull_mode = 2
 vertex_color_use_as_albedo = true
+albedo_color = Color(0.458824, 0.341176, 0.105882, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ev4ud"]
 resource_name = "Metal_Rusty"
 cull_mode = 2
 vertex_color_use_as_albedo = true
+albedo_color = Color(0.443137, 0.443137, 0.443137, 1)
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vybob"]

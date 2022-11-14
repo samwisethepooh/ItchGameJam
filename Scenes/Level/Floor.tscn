@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0xnag4qp4w7t"]
+
+[ext_resource type="Texture2D" uid="uid://biqm1s7bx72be" path="res://AssetPacks/SBS - Tiny Texture Pack 2 - 512x512/512x512/Dirt/Dirt_09-512x512.png" id="1_ajtnf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gs07b"]
+albedo_texture = ExtResource("1_ajtnf")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8w4b"]
+material = SubResource("StandardMaterial3D_gs07b")
+size = Vector3(24, 1, 24)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l7yx4"]
+data = PackedVector3Array(-12, 0.5, 12, 12, 0.5, 12, -12, -0.5, 12, 12, 0.5, 12, 12, -0.5, 12, -12, -0.5, 12, 12, 0.5, -12, -12, 0.5, -12, 12, -0.5, -12, -12, 0.5, -12, -12, -0.5, -12, 12, -0.5, -12, 12, 0.5, 12, 12, 0.5, -12, 12, -0.5, 12, 12, 0.5, -12, 12, -0.5, -12, 12, -0.5, 12, -12, 0.5, -12, -12, 0.5, 12, -12, -0.5, -12, -12, 0.5, 12, -12, -0.5, 12, -12, -0.5, -12, 12, 0.5, 12, -12, 0.5, 12, 12, 0.5, -12, -12, 0.5, 12, -12, 0.5, -12, 12, 0.5, -12, -12, -0.5, 12, 12, -0.5, 12, -12, -0.5, -12, 12, -0.5, 12, 12, -0.5, -12, -12, -0.5, -12)
+
+[node name="Floor" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.5, 12)
+mesh = SubResource("BoxMesh_u8w4b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l7yx4")

@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://catsnedejtp38"]
+
+[ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="1_cydnl"]
+[ext_resource type="Script" path="res://Source/MazeGenerator/Room.gd" id="1_gdq7v"]
+[ext_resource type="PackedScene" uid="uid://b0xnag4qp4w7t" path="res://Scenes/Level/Floor.tscn" id="2_2aqun"]
+[ext_resource type="PackedScene" uid="uid://6km11c7ey8wh" path="res://Scenes/SceneProps/vase.tscn" id="3_cxnko"]
+[ext_resource type="PackedScene" uid="uid://dqepst65jsloy" path="res://Scenes/SceneProps/low_table.tscn" id="4_ygicm"]
+[ext_resource type="PackedScene" uid="uid://cyh50clspyn8h" path="res://Scenes/SceneProps/SmallCandle1.tscn" id="5_bysth"]
+[ext_resource type="PackedScene" uid="uid://dtq06wwvb14xn" path="res://Scenes/SceneProps/barrel.tscn" id="6_y5pb5"]
+[ext_resource type="PackedScene" uid="uid://cln7jgafqlbwh" path="res://Scenes/Level/Rubble.tscn" id="8_il0b5"]
+
+[node name="Floor1Entrance" type="Node3D"]
+script = ExtResource("1_gdq7v")
+Y = 2
+
+[node name="Floor" parent="." instance=ExtResource("2_2aqun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -1.5, 12)
+
+[node name="GridMap" parent="." instance=ExtResource("1_cydnl")]
+cell_center_x = false
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(-65534, 65535, 196635, -1, 65535, 196630, 2, 65535, 196610, 0, 0, 1441819, 1, 0, 196635, 2, 0, 1441819, 3, 0, 1441819, 5, 0, 1441819, 4, 0, 1441819, 6, 0, 1441819, 7, 0, 1441819, 8, 0, 1441819, 9, 0, 1441819, 10, 0, 1441819, 0, 1, 1441819, 0, 2, 1441819, 0, 3, 1441819, 0, 4, 1441819, 0, 5, 1441819, 0, 6, 1441819, 0, 7, 1441819, 0, 11, 196635, 0, 10, 196635, 0, 9, 196635, 0, 8, 1441819, 11, 11, 1441819, 10, 11, 1441819, 9, 11, 1441819, 8, 11, 1441819, 5, 11, 1441819, 4, 11, 1441819, 3, 11, 1441819, 2, 11, 1441819, 1, 11, 1441819, 6, 11, 1441819, 7, 11, 1441819, 11, 0, 1441819, 11, 1, 1441819, 11, 2, 1441819, 11, 3, 1441819, 11, 4, 1441819, 11, 5, 1441819, 11, 6, 1441819, 11, 7, 1441819, 11, 8, 1441819, 11, 9, 1441819, 11, 10, 1441819, 65536, 11, 196635, 65536, 10, 1441819, 65536, 9, 1441819, 65536, 8, 196635, 65536, 7, 1441819, 65536, 6, 1441819, 65536, 5, 1441819, 65536, 4, 1441819, 65536, 3, 1441819, 65536, 2, 1441819, 65536, 1, 1441819, 65536, 0, 196635, 65537, 0, 1441819, 65538, 0, 1441819, 65539, 0, 1441819, 65540, 0, 1441819, 65541, 0, 1441819, 65543, 0, 1441819, 65542, 0, 1441819, 65544, 0, 1441819, 65545, 0, 1441819, 65546, 0, 1441819, 65547, 1, 1441819, 65547, 0, 1441819, 65547, 2, 1441819, 65547, 3, 1441819, 65547, 4, 1441819, 65547, 5, 1441819, 65547, 6, 1441819, 65547, 7, 1441819, 65547, 8, 1441819, 65547, 9, 1441819, 65537, 11, 1441819, 65538, 11, 1441819, 65539, 11, 1441819, 65540, 11, 1441819, 65541, 11, 1441819, 65542, 11, 1441819, 65543, 11, 1441819, 65544, 11, 1441819, 65545, 11, 1441819, 65546, 11, 1441819, 65547, 11, 1441819, 65547, 10, 1441819, 131072, 11, 1441819, 131073, 11, 1441819, 131076, 11, 1441819, 131077, 11, 1441819, 131078, 11, 1441819, 131079, 11, 1441819, 131080, 11, 1441819, 131081, 11, 1441819, 131082, 11, 1441819, 131083, 11, 1441819, 131083, 10, 1441819, 131083, 9, 1441819, 131083, 8, 1441819, 131083, 7, 1441819, 131083, 6, 1441819, 131083, 5, 1441819, 131083, 4, 1441819, 131083, 3, 1441819, 131083, 2, 1441819, 131083, 1, 1441819, 131083, 0, 1441819, 131082, 0, 1441819, 131081, 0, 1441819, 131080, 0, 1441819, 131079, 0, 1441819, 131078, 0, 1441819, 131077, 0, 1441819, 131076, 0, 1441819, 131072, 0, 1441819, 131073, 0, 1441819, 131074, 0, 1441819, 131075, 0, 1441819, 131072, 1, 1441819, 131072, 2, 1441819, 131072, 3, 1441819, 131072, 4, 1441819, 131072, 5, 1441819, 131072, 6, 1441819, 131072, 7, 1441819, 131072, 8, 1441819, 131072, 10, 1441819, 131072, 9, 1441819, 131074, 11, 1441819, 131075, 11, 1441819)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Vase" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5518, -0.941887, 14.6949)
+
+[node name="Vase2" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5518, -0.941887, 15.3002)
+
+[node name="Vase3" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 8.42933)
+
+[node name="Vase4" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 9.03468)
+
+[node name="Vase5" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 44.2851)
+
+[node name="Vase6" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 44.8904)
+
+[node name="Vase7" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 43.1728)
+
+[node name="Vase8" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.28157, -0.941887, 43.7782)
+
+[node name="Vase9" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(0.0404457, 0, -0.999182, 0, 1, 0, 0.999182, 0, 0.0404457, 17.3535, -0.941887, 45.5936)
+
+[node name="Vase10" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(0.0404457, 0, -0.999182, 0, 1, 0, 0.999182, 0, 0.0404457, 16.7486, -0.941887, 45.6181)
+
+[node name="Vase11" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(0.0404457, 0, -0.999182, 0, 1, 0, 0.999182, 0, 0.0404457, 17.8599, -0.941887, 45.5731)
+
+[node name="LowTable" parent="." instance=ExtResource("4_ygicm")]
+transform = Transform3D(0.344496, 0, 0.938788, 0, 1, 0, -0.938788, 0, 0.344496, 20.373, -0.954867, 43.7556)
+
+[node name="SmallCandle1" parent="." instance=ExtResource("5_bysth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1117, -0.1016, 42.2878)
+
+[node name="Barrel" parent="." instance=ExtResource("6_y5pb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3463, -0.941887, 4.40229)
+
+[node name="Barrel2" parent="." instance=ExtResource("6_y5pb5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0975, -0.941887, 4.40229)
+
+[node name="LowTable2" parent="." instance=ExtResource("4_ygicm")]
+transform = Transform3D(0.0722286, 0, -0.997388, 0, 1, 0, 0.997388, 0, 0.0722286, 3.27057, -0.974161, 14.763)
+
+[node name="LowTable3" parent="." instance=ExtResource("4_ygicm")]
+transform = Transform3D(-0.116047, 0, -0.993244, 0, 1, 0, 0.993244, 0, -0.116047, 3.27057, -0.974161, 19.154)
+
+[node name="SmallCandle2" parent="." instance=ExtResource("5_bysth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51344, -0.101599, 28.364)
+
+[node name="Vase12" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.076, -0.941887, 5.10819)
+
+[node name="Vase13" parent="." instance=ExtResource("3_cxnko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.414, -0.941887, 5.67795)
+
+[node name="Rubble" parent="." instance=ExtResource("8_il0b5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 10.8622, -1.04488, 12.9828)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00294963, 0.999996, 0, -0.999996, -0.00294963, 11.6284, 10.1155, 12.9339)
+spot_range = 100.0
