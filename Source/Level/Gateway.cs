@@ -33,6 +33,7 @@ public partial class Gateway : Node3D, IActivatable
 
 	public void Activate(bool isActive, Node3D source, CharacterBody3D invoker)
 	{
+		GD.Print("activated gate");
 		Open = isActive;
 	}
 }

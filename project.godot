@@ -39,12 +39,13 @@ _global_script_class_icons={
 [application]
 
 config/name="G4fps"
-run/main_scene="res://levels/node_3d.tscn"
+run/main_scene="res://Scenes/Launch.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 
 [autoload]
 
 Settings="*res://Global/Settings.gd"
+LevelManager="*res://Source/LevelManager.cs"
 
 [dotnet]
 
