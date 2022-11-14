@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkt55i0i0fdpb"]
+
+[ext_resource type="PackedScene" uid="uid://bjdt38l633huk" path="res://Scenes/Level/GridMap.tscn" id="1_cydnl"]
+[ext_resource type="Script" path="res://Source/MazeGenerator/Room.gd" id="1_gdq7v"]
+[ext_resource type="PackedScene" uid="uid://b0xnag4qp4w7t" path="res://Scenes/Level/Floor.tscn" id="2_2aqun"]
+[ext_resource type="Texture2D" uid="uid://xn0vscpreae4" path="res://AssetPacks/SBS - Tiny Texture Pack 2 - 512x512/512x512/Stone/Stone_11-512x512.png" id="3_d07on"]
+[ext_resource type="PackedScene" uid="uid://dtq06wwvb14xn" path="res://Scenes/SceneProps/barrel.tscn" id="6_y5pb5"]
+[ext_resource type="Texture2D" uid="uid://ku8wmymslmot" path="res://Images/hades.png" id="7_5e6fw"]
+[ext_resource type="Texture2D" uid="uid://dsyxcwql1n68j" path="res://Images/minotaur.png" id="7_rfdsp"]
+[ext_resource type="PackedScene" uid="uid://cln7jgafqlbwh" path="res://Scenes/Level/Rubble.tscn" id="8_il0b5"]
+[ext_resource type="Texture2D" uid="uid://cmct8prkpbcuk" path="res://Images/hades2.png" id="8_qevw0"]
+[ext_resource type="Texture2D" uid="uid://b3e2o2g0bys3c" path="res://AssetPacks/Stains And Damage/Stains And Damage 3.png" id="9_116ww"]
+[ext_resource type="Texture2D" uid="uid://cehp6ajrg2vmf" path="res://AssetPacks/Stains And Damage/Stains And Damage 4.png" id="10_kdomg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ky6f1"]
+albedo_texture = ExtResource("3_d07on")
+uv1_scale = Vector3(12, 12, 12)
+
+[node name="Floor1Entrance" type="Node3D"]
+script = ExtResource("1_gdq7v")
+Y = 2
+
+[node name="Floor" parent="." instance=ExtResource("2_2aqun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -1.5, 12)
+
+[node name="Ceiling" parent="." instance=ExtResource("2_2aqun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 5.5, 12)
+surface_material_override/0 = SubResource("StandardMaterial3D_ky6f1")
+
+[node name="GridMap" parent="." instance=ExtResource("1_cydnl")]
+cell_center_x = false
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(0, 8, 27, 1, 8, 27, 2, 8, 27, 3, 8, 27, 4, 8, 27, 5, 8, 27, 6, 8, 26, 8, 8, 26, 9, 8, 27, 0, 4, 27, 1, 4, 27, 2, 4, 27, 3, 4, 27, 4, 4, 27, 5, 4, 27, 9, 7, 27, 9, 6, 27, 9, 5, 27, 9, 4, 27, 9, 3, 27, 11, 0, 27, 10, 0, 27, 9, 0, 27, 8, 3, 27, 6, 5, 27, 7, 2, 27, 6, 2, 27, 8, 0, 27, 7, 0, 27, 6, 0, 27, 5, 0, 27, 4, 0, 27, 3, 0, 27, 2, 0, 27, 1, 0, 27, 0, 0, 27, 0, 1, 27, 0, 2, 27, 0, 3, 27, 5, 2, 27, 4, 2, 27, 3, 2, 27, 2, 2, 27, 11, 1, 27, 11, 2, 27, 11, 3, 27, 11, 4, 27, 11, 5, 27, 11, 6, 27, 11, 7, 27, 11, 8, 27, 11, 9, 27, 11, 10, 27, 11, 11, 27, 10, 11, 27, 9, 11, 27, 8, 11, 27, 7, 11, 27, 6, 11, 27, 3, 9, 27, 3, 10, 27, 3, 11, 27, 65542, 5, 27, 65541, 4, 27, 65540, 4, 27, 65539, 4, 27, 65538, 4, 27, 65537, 4, 27, 65536, 4, 27, 65536, 0, 27, 65536, 1, 27, 65536, 2, 27, 65536, 3, 27, 65547, 0, 27, 65546, 0, 27, 65545, 0, 27, 65544, 0, 27, 65543, 0, 27, 65542, 0, 27, 65541, 0, 27, 65540, 0, 27, 65539, 0, 27, 65538, 0, 27, 65537, 0, 27, 65547, 1, 27, 65547, 2, 27, 65547, 3, 27, 65547, 4, 27, 65547, 5, 27, 65547, 6, 27, 65547, 7, 27, 65547, 8, 27, 65547, 9, 27, 65547, 10, 27, 65547, 11, 27, 65546, 11, 27, 65545, 11, 27, 65544, 11, 27, 65543, 11, 27, 65542, 11, 27, 65536, 8, 27, 65537, 8, 27, 65538, 8, 27, 65539, 8, 27, 65540, 8, 27, 65541, 8, 27, 65542, 8, 27, 65543, 8, 27, 65545, 8, 27, 65545, 7, 27, 65545, 6, 27, 65545, 5, 27, 65545, 4, 27, 65545, 3, 27, 65544, 3, 27, 65539, 9, 27, 65539, 10, 27, 65539, 11, 27, 131083, 0, 27, 131082, 0, 27, 131081, 0, 27, 131080, 0, 27, 131079, 0, 27, 131078, 0, 27, 131077, 0, 27, 131076, 0, 27, 131075, 0, 27, 131074, 0, 27, 131073, 0, 27, 131072, 0, 27, 131072, 1, 27, 131072, 2, 27, 131072, 3, 27, 131072, 4, 27, 131072, 5, 27, 131072, 6, 27, 131072, 7, 27, 131072, 8, 27, 131073, 8, 27, 131074, 8, 27, 131075, 8, 27, 131076, 8, 27, 131077, 8, 27, 131078, 8, 27, 131079, 8, 27, 131080, 8, 27, 131081, 8, 27, 131081, 7, 27, 131081, 6, 27, 131081, 5, 27, 131080, 3, 27, 131081, 3, 27, 131081, 4, 27, 131079, 3, 27, 131078, 3, 27, 131077, 3, 27, 131076, 3, 27, 131075, 3, 27, 131074, 3, 27, 131073, 3, 27, 131077, 4, 27, 131076, 4, 27, 131075, 4, 27, 131074, 4, 27, 131073, 4, 27, 131078, 5, 27, 131078, 4, 27, 131079, 4, 27, 131080, 4, 27, 131079, 5, 27, 131080, 5, 27, 131080, 6, 27, 131079, 6, 27, 131080, 7, 27, 131075, 9, 27, 131075, 10, 27, 131075, 11, 27, 131078, 11, 27, 131079, 11, 27, 131080, 11, 27, 131081, 11, 27, 131082, 11, 27, 131083, 11, 27, 131083, 10, 27, 131083, 9, 27, 131083, 8, 27, 131083, 7, 27, 131083, 6, 27, 131083, 5, 27, 131083, 4, 27, 131083, 3, 27, 131083, 2, 27, 131083, 1, 27, 65538, 2, 27, 65539, 2, 27, 65540, 2, 27, 65541, 2, 27, 65542, 2, 27, 65543, 2, 27, 131074, 2, 27, 131075, 2, 27, 131076, 2, 27, 131077, 2, 27, 131078, 2, 27, 131079, 2, 27, 7, 8, 26, 65544, 8, 26)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Barrel2" parent="Props" instance=ExtResource("6_y5pb5")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 16.9925, -0.941887, 4.626)
+
+[node name="MosaicDecal" type="Decal" parent="Props"]
+transform = Transform3D(-1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 12.1055, 2.06847, 2.01944)
+extents = Vector3(12, 0.1, 3)
+texture_albedo = ExtResource("7_5e6fw")
+emission_energy = 5.59
+
+[node name="MosaicDecal3" type="Decal" parent="Props"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 20.9634, 2.06847, 10.9749)
+extents = Vector3(12, 0.1, 3)
+texture_albedo = ExtResource("7_5e6fw")
+emission_energy = 5.59
+
+[node name="MosaicDecal4" type="Decal" parent="Props"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 18.972, 2.06847, 12.0386)
+extents = Vector3(6, 0.1, 3)
+texture_albedo = ExtResource("7_rfdsp")
+emission_energy = 5.59
+
+[node name="MosaicDecal2" type="Decal" parent="Props"]
+transform = Transform3D(1, -1.31134e-07, -1.31134e-07, -1.31134e-07, -4.37114e-08, -1, 1.31134e-07, 1, -4.37114e-08, 23.0526, 1.96387, 21.9693)
+extents = Vector3(12, 0.1, 3)
+texture_albedo = ExtResource("8_qevw0")
+emission_energy = 5.59
+
+[node name="DirtDecal" type="Decal" parent="Props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1473, -1.00484, 13.2224)
+extents = Vector3(5, 1, 5)
+texture_albedo = ExtResource("9_116ww")
+emission_energy = 5.59
+upper_fade = 17.9142
+lower_fade = 27.1529
+distance_fade_begin = 0.0
+distance_fade_length = 20.0
+
+[node name="Rubble" parent="Props" instance=ExtResource("8_il0b5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.734007, -1.04488, 4.60383)
+
+[node name="DirtDecal2" type="Decal" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0872011, -2.24041, 4.48356)
+extents = Vector3(6, 2, 6)
+texture_albedo = ExtResource("10_kdomg")
+emission_energy = 5.59
+distance_fade_begin = 0.0
+distance_fade_length = 20.0
+
+[node name="DirtDecal3" type="Decal" parent="Props"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.7656, -1.30432, 16.7387)
+extents = Vector3(6, 2, 6)
+texture_albedo = ExtResource("10_kdomg")
+emission_energy = 5.59
+distance_fade_begin = 0.0
+distance_fade_length = 20.0

@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cbobc00ao7dg7"]
+[gd_scene load_steps=20 format=3 uid="uid://cbobc00ao7dg7"]
 
+[ext_resource type="Script" path="res://Source/Level/Gateway.cs" id="1_lxold"]
 [ext_resource type="AudioStream" uid="uid://u8q7k6ofdcnq" path="res://Sounds/336888__omnisis__gate-heavy-openclose-wav.wav" id="2_tbsud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llfyl"]
@@ -232,6 +233,7 @@ _data = {
 
 [node name="Gateway" type="Node3D"]
 transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0, 0, 0)
+script = ExtResource("1_lxold")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ufgpg")

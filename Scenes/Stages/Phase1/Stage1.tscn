@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://bpr75bidpducm"]
 
 [ext_resource type="PackedScene" uid="uid://7gv6q50fuutj" path="res://Scenes/Player/player.tscn" id="1_eisjc"]
 [ext_resource type="PackedScene" uid="uid://bxtg8v2rfy6dv" path="res://Scenes/Sections/Floor1Entrance.tscn" id="4_r2pd1"]
-[ext_resource type="PackedScene" path="res://Scenes/shrub.tscn" id="5_uw0ov"]
+[ext_resource type="PackedScene" uid="uid://lge0pt21btfc" path="res://Scenes/shrub.tscn" id="5_uw0ov"]
 [ext_resource type="PackedScene" uid="uid://bp5lu2b0l5nlq" path="res://Scenes/Mobs/Minotaur.tscn" id="5_vdmbx"]
 [ext_resource type="PackedScene" uid="uid://dnehhqwbinx7d" path="res://Scenes/Sections/Floor1Approach.tscn" id="5_yacfg"]
 [ext_resource type="Script" path="res://Source/MazeGenerator/MazeGenerator.gd" id="6_m7w62"]
