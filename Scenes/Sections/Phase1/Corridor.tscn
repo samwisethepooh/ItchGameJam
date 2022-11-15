@@ -16,7 +16,7 @@
 albedo_texture = ExtResource("3_d07on")
 uv1_scale = Vector3(12, 12, 12)
 
-[node name="Floor1Entrance" type="Node3D"]
+[node name="Corridor" type="Node3D"]
 script = ExtResource("1_gdq7v")
 Y = 2
 

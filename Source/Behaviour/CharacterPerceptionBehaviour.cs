@@ -14,7 +14,7 @@ public partial class CharacterPerceptionBehaviour : Behaviour
 	public override void _Ready()
 	{
 		base._Ready();
-		_visionManager = GetNode<VisionManager>("../../VisionManager");
+		_visionManager = GetNode<VisionManager>("../VisionManager");
 		if (_visionManager == null)
 		{
 			throw new Exception("No vision manager - this must exist on mob");
@@ -37,7 +37,9 @@ public partial class CharacterPerceptionBehaviour : Behaviour
 			if (_visionManager.CanDetect(player))
 			{
 				MobController.Target = new TargetNode(player);
-			}
+				MobController.PriorityLevel = 10;
+				MobController.IsAggressive = true;
+            }
 		}
 	}
 }

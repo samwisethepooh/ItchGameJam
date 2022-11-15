@@ -20,6 +20,7 @@ public partial class DisengagementBehaviour : Behaviour
         if (distanceToTarget >= DisengagementRange)
         {
             MobController.Target = null;
+            MobController.PriorityLevel = 0;
         }
     }
 }

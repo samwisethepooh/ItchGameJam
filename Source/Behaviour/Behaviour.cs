@@ -12,7 +12,7 @@ public abstract partial class Behaviour : Node
 
     public override void _Ready()
     {
-        MobController = GetParent<MobController>();
-        Mob = MobController.GetParent<CharacterBody3D>();
+        Mob = GetParent<CharacterBody3D>();
+        MobController = Mob.GetNode<MobController>("MobController");
     }
 }

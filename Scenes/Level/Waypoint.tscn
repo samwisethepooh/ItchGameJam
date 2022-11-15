@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dupc2dxoefygh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7us3s"]
+
+[node name="Waypoint" type="Area3D" groups=["waypoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3543, 0, 7.81276)
+monitoring = false
+monitorable = false
+
+[node name="EditorShape" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7us3s")

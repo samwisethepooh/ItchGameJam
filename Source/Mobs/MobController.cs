@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 public partial class MobController : Node
 {
     public ITarget Target { get; set; }
-    public bool IsAggressive { get; set; } = true;
+    public int PriorityLevel { get; set; } = 0;
+    public bool IsAggressive { get; set; } = false;
 
     public override void _Ready()
     {

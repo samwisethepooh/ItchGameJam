@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7i3pq"]
 radius = 1.123
-height = 5.362
+height = 5.0
 
 [node name="Minotaur" type="CharacterBody3D"]
 script = ExtResource("1_15vo4")
@@ -29,20 +29,8 @@ transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 
 [node name="Armature" parent="Enemy" instance=ExtResource("3_cchuk")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.24161, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52003, 0)
 shape = SubResource("CapsuleShape3D_7i3pq")
-
-[node name="MobController" type="Node" parent="."]
-script = ExtResource("4_jmmc3")
-
-[node name="CharacterPerceptionBehaviour" type="Node" parent="MobController"]
-script = ExtResource("4_4nlm1")
-
-[node name="DisengagementBehaviour" type="Node" parent="MobController"]
-script = ExtResource("6_nxk1l")
-
-[node name="NavigationBehaviour" type="Node" parent="MobController"]
-script = ExtResource("7_4mnad")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.79567, -3.3597)
@@ -50,3 +38,17 @@ light_color = Color(0.968627, 1, 0.937255, 1)
 spot_range = 3.0
 
 [node name="VisionManager" parent="." instance=ExtResource("8_w7pjv")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MobController" type="Node" parent="."]
+script = ExtResource("4_jmmc3")
+
+[node name="CharacterPerceptionBehaviour" type="Node" parent="."]
+script = ExtResource("4_4nlm1")
+
+[node name="DisengagementBehaviour" type="Node" parent="."]
+script = ExtResource("6_nxk1l")
+
+[node name="NavigationBehaviour" type="Node" parent="."]
+script = ExtResource("7_4mnad")

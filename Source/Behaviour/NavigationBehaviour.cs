@@ -10,12 +10,15 @@ public partial class NavigationBehaviour : Behaviour
 {
 
 	private AnimationPlayer _animationPlayer;
+	private NavigationAgent3D _navigationAgent3D;
 
 	public override void _Ready()
 	{
 		base._Ready();
 		_animationPlayer = Mob.GetNode<AnimationPlayer>("./AnimationPlayer");
-		foreach (var animation in _animationPlayer.GetAnimationList())
+		_navigationAgent3D = Mob.GetNode<NavigationAgent3D>("./NavigationAgent3D");
+
+        foreach (var animation in _animationPlayer.GetAnimationList())
 		{
 			GD.Print(animation);
 		}
@@ -28,7 +31,11 @@ public partial class NavigationBehaviour : Behaviour
 			_animationPlayer.Play(AnimationNames.Idle);
 			return;
 		}
-		var targetDirection = (MobController.Target.Position - Mob.Position);
+
+		_navigationAgent3D.SetTargetLocation(MobController.Target.Position);
+		var nextLocation = _navigationAgent3D.GetNextLocation();
+
+		var targetDirection = (nextLocation - Mob.Position);
 		targetDirection.y = 0;
 		if (targetDirection.Length() < 0.0001)
 		{
@@ -43,7 +50,7 @@ public partial class NavigationBehaviour : Behaviour
 		}
 		else
 		{
-			_animationPlayer.Play(AnimationNames.WalkForward, customSpeed: 0.2f);
+			_animationPlayer.Play(AnimationNames.WalkForward, customSpeed: 0.3f);
 		}
 		Mob.Velocity = moveDirection * speed;
 		Mob.LookAt(Mob.Position + moveDirection);
