@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 public partial class NavigationBehaviour : Behaviour
 {
+	[Export] public float WalkSpeed { get; set; } = 2f;
+    [Export] public float ChaseSpeed { get; set; } = 7f;
 
 	private AnimationPlayer _animationPlayer;
 	private NavigationAgent3D _navigationAgent3D;
@@ -15,24 +17,36 @@ public partial class NavigationBehaviour : Behaviour
 	public override void _Ready()
 	{
 		base._Ready();
-		_animationPlayer = Mob.GetNode<AnimationPlayer>("./AnimationPlayer");
-		_navigationAgent3D = Mob.GetNode<NavigationAgent3D>("./NavigationAgent3D");
+        _navigationAgent3D = Mob.GetNode<NavigationAgent3D>("./NavigationAgent3D");
+  //      if (Mob.HasNode("./AnimationPlayer"))
+		//{
+			_animationPlayer = Mob.GetNode<AnimationPlayer>("./AnimationPlayer");
+            foreach (var animation in _animationPlayer.GetAnimationList())
+            {
+                GD.Print(animation);
+            }
+	  //      } else
+			//{
+			//	GD.Print("No animation player");
+			//}
 
-        foreach (var animation in _animationPlayer.GetAnimationList())
-		{
-			GD.Print(animation);
-		}
 	}
 
 	public override void _Process(double delta)
 	{
-		if (MobController.Target == null)
+		if (MobController.Intent == null)
 		{
-			_animationPlayer.Play(AnimationNames.Idle);
+			Mob.Velocity = Vector3.Zero;
+            _animationPlayer.Play(AnimationNames.Idle);
 			return;
 		}
 
-		_navigationAgent3D.SetTargetLocation(MobController.Target.Position);
+		if (_navigationAgent3D == null)
+		{
+			GD.PrintErr("no navigation agent");
+			return;
+		}
+		_navigationAgent3D.SetTargetLocation(MobController.Intent.Position);
 		var nextLocation = _navigationAgent3D.GetNextLocation();
 
 		var targetDirection = (nextLocation - Mob.Position);
@@ -43,7 +57,7 @@ public partial class NavigationBehaviour : Behaviour
 		}
 
 		var moveDirection = targetDirection.Normalized();
-		var speed = MobController.IsAggressive ? 4f : 2f;
+		var speed = MobController.IsAggressive ? ChaseSpeed : WalkSpeed;
 		if (MobController.IsAggressive)
 		{
 			_animationPlayer.Play(AnimationNames.RunForward, customSpeed: 0.6f);

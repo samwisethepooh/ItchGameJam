@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcm7ucbgx0iw0"]
+
+[ext_resource type="Shader" path="res://addons/shell_fur/shaders/shell_fur.gdshader" id="1_dy370"]
+[ext_resource type="Texture2D" uid="uid://drvexbxvsbks5" path="res://addons/shell_fur/noise_patterns/very_rough.png" id="2_hih0n"]
+[ext_resource type="Script" path="res://addons/shell_fur/shell_fur.gd" id="3_k66uj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hjmpf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_if76e"]
+render_priority = 0
+shader = ExtResource("1_dy370")
+shader_parameter/albedo_color = null
+shader_parameter/albedo_uv_scale = null
+shader_parameter/ao = null
+shader_parameter/ao_light_affect = null
+shader_parameter/i_LOD = null
+shader_parameter/i_blend_shape_multiplier = null
+shader_parameter/i_fur_contract = null
+shader_parameter/i_layers = null
+shader_parameter/i_normal_bias = null
+shader_parameter/i_pattern_uv_scale = null
+shader_parameter/i_physics_pos_offset = null
+shader_parameter/i_physics_rot_offset = null
+shader_parameter/i_wind_angle = null
+shader_parameter/i_wind_scale = null
+shader_parameter/i_wind_speed = null
+shader_parameter/i_wind_strength = null
+shader_parameter/roughness = null
+shader_parameter/shape_density = null
+shader_parameter/shape_growth = null
+shader_parameter/shape_growth_rand = null
+shader_parameter/shape_ldtg_uv_scale = null
+shader_parameter/shape_length = null
+shader_parameter/shape_length_rand = null
+shader_parameter/shape_thickness_base = null
+shader_parameter/shape_thickness_rand = null
+shader_parameter/shape_thickness_tip = null
+shader_parameter/transmission = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8esl"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_if76e")
+shader = ExtResource("1_dy370")
+shader_parameter/albedo_color = null
+shader_parameter/albedo_uv_scale = null
+shader_parameter/ao = 0.115
+shader_parameter/ao_light_affect = 0.106
+shader_parameter/i_LOD = 1.0
+shader_parameter/i_blend_shape_multiplier = 1.0
+shader_parameter/i_fur_contract = 0.0
+shader_parameter/i_layers = 40
+shader_parameter/i_normal_bias = null
+shader_parameter/i_pattern_texture = ExtResource("2_hih0n")
+shader_parameter/i_pattern_uv_scale = null
+shader_parameter/i_physics_pos_offset = null
+shader_parameter/i_physics_rot_offset = null
+shader_parameter/i_wind_angle = null
+shader_parameter/i_wind_scale = null
+shader_parameter/i_wind_speed = null
+shader_parameter/i_wind_strength = null
+shader_parameter/roughness = null
+shader_parameter/shape_density = null
+shader_parameter/shape_growth = null
+shader_parameter/shape_growth_rand = null
+shader_parameter/shape_ldtg_uv_scale = null
+shader_parameter/shape_length = 1.959
+shader_parameter/shape_length_rand = 0.221
+shader_parameter/shape_thickness_base = 0.442
+shader_parameter/shape_thickness_rand = 0.304
+shader_parameter/shape_thickness_tip = 0.433
+shader_parameter/transmission = null
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, -1.76471)
+mesh = SubResource("PlaneMesh_hjmpf")
+surface_material_override/0 = SubResource("ShaderMaterial_g8esl")
+
+[node name="shell_fur" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.95195)
+script = ExtResource("3_k66uj")

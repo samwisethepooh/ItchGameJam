@@ -8,10 +8,13 @@ using System.Threading.Tasks;
 
 public partial class WaypointPathBehaviour : Behaviour
 {
-    private static int PriorityLevel = 1;
     private List<Node> _waypoints { get; set; } = new List<Node>();
     [Export] public Node WaypointA { get; set; }
     [Export] public Node WaypointB { get; set; }
+    [Export] public Node WaypointC { get; set; }
+    [Export] public Node WaypointD { get; set; }
+    [Export] public Node WaypointE { get; set; }
+    [Export] public Node WaypointF { get; set; }
 
     private int _currentTarget = 0;
 
@@ -27,31 +30,49 @@ public partial class WaypointPathBehaviour : Behaviour
         {
             _waypoints.Add(WaypointB);
         }
-	}
+        if (WaypointC != null)
+        {
+            _waypoints.Add(WaypointC);
+        }
+        if (WaypointD != null)
+        {
+            _waypoints.Add(WaypointD);
+        }
+        if (WaypointE != null)
+        {
+            _waypoints.Add(WaypointE);
+        }
+        if (WaypointF != null)
+        {
+            _waypoints.Add(WaypointF);
+        }
+    }
 
 	public override void _Process(double delta)
 	{
-        if (MobController.PriorityLevel > PriorityLevel)
+        if (MobController.Intent is SeekWaypointIntent)
         {
-            return;
+            DisengageFromWaypoint();
         }
+        if (MobController.Intent == null)
+        {
+            SeekNextWaypoint();
+        }
+    }
 
-        if (MobController.Target == null)
+    private void DisengageFromWaypoint()
+    {
+        var distanceToTarget = (MobController.Intent.Position - Mob.Position).Length();
+        if (distanceToTarget < 0.5f)
         {
-            _currentTarget = (_currentTarget + 1) % _waypoints.Count;
-            var target = _waypoints[_currentTarget];
-            MobController.Target = new TargetLocation((target as Node3D).GlobalPosition);
-            MobController.PriorityLevel = 1;
+            MobController.ClearIntent(1);
         }
-        else
-        {
-            var distanceToTarget = (MobController.Target.Position - Mob.Position).Length();
-            if (distanceToTarget < 1f)
-            {
-                MobController.Target = null;
-                MobController.PriorityLevel = 0;
-            }
-        }
+    }
 
+    private void SeekNextWaypoint()
+    {
+        _currentTarget = (_currentTarget + 1) % _waypoints.Count;
+        var target = _waypoints[_currentTarget];
+        MobController.OfferIntent(new SeekWaypointIntent((target as Node3D).GlobalPosition));
     }
 }

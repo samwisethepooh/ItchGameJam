@@ -33,13 +33,20 @@ public partial class CharacterPerceptionBehaviour : Behaviour
 			.Where(x => ((string)x.Name).StartsWith("Player", StringComparison.InvariantCultureIgnoreCase))
 			.Cast<Node3D>();
 		foreach (var player in players)
-		{
-			if (_visionManager.CanDetect(player))
+        {
+
+            if (PlayerIsWithinRange(player)
+				&& _visionManager.CanDetect(player))
 			{
-				MobController.Target = new TargetNode(player);
-				MobController.PriorityLevel = 10;
-				MobController.IsAggressive = true;
+				MobController.OfferIntent(new ChasePlayerIntent(player));
             }
 		}
 	}
+
+	private bool PlayerIsWithinRange(Node3D player)
+	{
+
+        var distanceToTarget = (player.GlobalPosition - Mob.GlobalPosition).Length();
+		return distanceToTarget <= ViewRange;
+    }
 }
