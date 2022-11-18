@@ -18,17 +18,18 @@ public partial class NavigationBehaviour : Behaviour
 	{
 		base._Ready();
         _navigationAgent3D = Mob.GetNode<NavigationAgent3D>("./NavigationAgent3D");
-  //      if (Mob.HasNode("./AnimationPlayer"))
-		//{
+		if (Mob.HasNode("./AnimationPlayer"))
+		{
 			_animationPlayer = Mob.GetNode<AnimationPlayer>("./AnimationPlayer");
-            foreach (var animation in _animationPlayer.GetAnimationList())
-            {
-                GD.Print(animation);
-            }
-	  //      } else
-			//{
-			//	GD.Print("No animation player");
-			//}
+			foreach (var animation in _animationPlayer.GetAnimationList())
+			{
+				GD.Print(animation);
+			}
+		}
+		else
+		{
+			GD.Print("No animation player");
+		}
 
 	}
 
@@ -37,7 +38,7 @@ public partial class NavigationBehaviour : Behaviour
 		if (MobController.Intent == null)
 		{
 			Mob.Velocity = Vector3.Zero;
-            _animationPlayer.Play(AnimationNames.Idle);
+            _animationPlayer?.Play(AnimationNames.Idle);
 			return;
 		}
 
@@ -60,11 +61,11 @@ public partial class NavigationBehaviour : Behaviour
 		var speed = MobController.IsAggressive ? ChaseSpeed : WalkSpeed;
 		if (MobController.IsAggressive)
 		{
-			_animationPlayer.Play(AnimationNames.RunForward, customSpeed: 0.6f);
+			_animationPlayer?.Play(AnimationNames.RunForward, customSpeed: 0.6f);
 		}
 		else
 		{
-			_animationPlayer.Play(AnimationNames.WalkForward, customSpeed: 0.3f);
+			_animationPlayer?.Play(AnimationNames.WalkForward, customSpeed: 0.3f);
 		}
 		Mob.Velocity = moveDirection * speed;
 		Mob.LookAt(Mob.Position + moveDirection);
