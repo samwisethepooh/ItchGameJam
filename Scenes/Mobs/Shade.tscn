@@ -1,36 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp5lu2b0l5nlq"]
+[gd_scene load_steps=11 format=3 uid="uid://c2k1hgej8mhy6"]
 
-[ext_resource type="Script" path="res://Source/Mobs/Mob.cs" id="1_qpub3"]
-[ext_resource type="AnimationLibrary" uid="uid://bessp12qoayxa" path="res://Animations/Movement.res" id="2_22kxy"]
-[ext_resource type="PackedScene" uid="uid://ceddt6h38l1j2" path="res://Scenes/Mobs/MinotaurModel.tscn" id="3_cchuk"]
-[ext_resource type="Script" path="res://Source/Behaviour/CharacterPerceptionBehaviour.cs" id="4_4nlm1"]
+[ext_resource type="Script" path="res://Source/Mobs/Mob.cs" id="1_tmdn5"]
+[ext_resource type="Script" path="res://Source/Behaviour/OmniCharacterPerceptionBehaviour.cs" id="4_dl4g8"]
 [ext_resource type="Script" path="res://Source/Mobs/MobController.cs" id="4_jmmc3"]
 [ext_resource type="Script" path="res://Source/Behaviour/DisengagementBehaviour.cs" id="6_nxk1l"]
+[ext_resource type="AudioStream" uid="uid://c57yv04f87rnn" path="res://Sounds/175944__litruv__ghost-whispers.wav" id="7_0se7k"]
 [ext_resource type="Script" path="res://Source/Behaviour/NavigationBehaviour.cs" id="7_4mnad"]
+[ext_resource type="Script" path="res://Source/AudioLooper.cs" id="8_tjv1m"]
 [ext_resource type="PackedScene" uid="uid://c27rq7gwj8g48" path="res://Scenes/Mobs/VisionManager.tscn" id="8_w7pjv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7i3pq"]
 radius = 1.123
 height = 5.0
 
-[node name="Minotaur" type="CharacterBody3D"]
-script = ExtResource("1_qpub3")
+[sub_resource type="FogMaterial" id="FogMaterial_lit8n"]
+density = 10.0
+albedo = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"Movement": ExtResource("2_22kxy")
-}
+[node name="Shade" type="CharacterBody3D"]
+script = ExtResource("1_tmdn5")
 
 [node name="RootNode" type="Node3D" parent="."]
-
-[node name="Enemy" type="Node3D" parent="."]
-transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, 0, 0)
-
-[node name="Armature" parent="Enemy" instance=ExtResource("3_cchuk")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52003, 0)
 shape = SubResource("CapsuleShape3D_7i3pq")
+disabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.79567, -3.3597)
@@ -45,11 +40,26 @@ spot_range = 3.0
 [node name="MobController" type="Node" parent="."]
 script = ExtResource("4_jmmc3")
 
-[node name="CharacterPerceptionBehaviour" type="Node" parent="."]
-script = ExtResource("4_4nlm1")
+[node name="OmniCharacterPerceptionBehaviour" type="Node" parent="."]
+script = ExtResource("4_dl4g8")
 
 [node name="DisengagementBehaviour" type="Node" parent="."]
 script = ExtResource("6_nxk1l")
 
 [node name="NavigationBehaviour" type="Node" parent="."]
 script = ExtResource("7_4mnad")
+WalkSpeed = 1.0
+ChaseSpeed = 1.0
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65575, 0)
+extents = Vector3(2, 3, 2)
+shape = 1
+material = SubResource("FogMaterial_lit8n")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_0se7k")
+pitch_scale = 2.0
+autoplay = true
+max_distance = 20.0
+script = ExtResource("8_tjv1m")

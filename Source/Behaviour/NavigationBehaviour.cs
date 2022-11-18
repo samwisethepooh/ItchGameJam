@@ -18,18 +18,17 @@ public partial class NavigationBehaviour : Behaviour
 	{
 		base._Ready();
         _navigationAgent3D = Mob.GetNode<NavigationAgent3D>("./NavigationAgent3D");
-		if (Mob.HasNode("./AnimationPlayer"))
-		{
+  //      if (Mob.HasNode("./AnimationPlayer"))
+		//{
 			_animationPlayer = Mob.GetNode<AnimationPlayer>("./AnimationPlayer");
-			foreach (var animation in _animationPlayer.GetAnimationList())
-			{
-				GD.Print(animation);
-			}
-		}
-		else
-		{
-			GD.Print("No animation player");
-		}
+            foreach (var animation in _animationPlayer.GetAnimationList())
+            {
+                GD.Print(animation);
+            }
+	  //      } else
+			//{
+			//	GD.Print("No animation player");
+			//}
 
 	}
 
@@ -38,7 +37,7 @@ public partial class NavigationBehaviour : Behaviour
 		if (MobController.Intent == null)
 		{
 			Mob.Velocity = Vector3.Zero;
-            _animationPlayer?.Play(AnimationNames.Idle);
+            _animationPlayer.Play(AnimationNames.Idle);
 			return;
 		}
 

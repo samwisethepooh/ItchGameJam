@@ -4,7 +4,7 @@ using System.Linq;
 
 public partial class VisionManager : Node3D
 {
-	[Export] public float ConeArc { get; set; } = 60;
+	[Export] public float ConeArc { get; set; } = 180;
 	[Export] public float ProximityThreshold { get; set; } = 4.5f;
 
 	public override void _Ready()
