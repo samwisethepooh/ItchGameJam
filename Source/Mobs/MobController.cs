@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 public partial class MobController : Node
 {
-    public ITarget Target { get; set; }
-    public int PriorityLevel { get; set; } = 0;
-    public bool IsAggressive { get; set; } = false;
+    public IIntent Intent { get; private set; }
+    public bool IsAggressive => Intent is ChasePlayerIntent;
 
     public override void _Ready()
     {
@@ -17,5 +16,27 @@ public partial class MobController : Node
 
     public override void _Process(double delta)
     {
+    }
+
+    public void OfferIntent(IIntent intent)
+    {
+        if (intent == null)
+        {
+            throw new ArgumentException("cannot offer null intent");
+        }
+        if (Intent == null
+            || intent.Priority > Intent.Priority)
+        {
+            Intent = intent;
+        }
+    }
+
+    public void ClearIntent(int upToPriotity = int.MaxValue)
+    {
+        if (Intent != null
+            && Intent.Priority <= upToPriotity)
+        {
+            Intent = null;
+        }
     }
 }

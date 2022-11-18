@@ -11,16 +11,19 @@ public partial class DisengagementBehaviour : Behaviour
 
     public override void _Process(double delta)
     {
-        if (MobController.Target == null)
+        if (MobController.Intent == null)
+        {
+            return;
+        }
+        if (!(MobController.Intent is ChasePlayerIntent))
         {
             return;
         }
 
-        var distanceToTarget = (MobController.Target.Position - Mob.Position).Length();
+        var distanceToTarget = (MobController.Intent.Position - Mob.GlobalPosition).Length();
         if (distanceToTarget >= DisengagementRange)
         {
-            MobController.Target = null;
-            MobController.PriorityLevel = 0;
+            MobController.ClearIntent();
         }
     }
 }
